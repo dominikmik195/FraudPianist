@@ -1,0 +1,11 @@
+C:\Users\petra\Desktop\fax\RP3\Fraud pianist\rp3-projekt\bin\Debug\piano.exe.config
+C:\Users\petra\Desktop\fax\RP3\Fraud pianist\rp3-projekt\bin\Debug\piano.exe
+C:\Users\petra\Desktop\fax\RP3\Fraud pianist\rp3-projekt\bin\Debug\piano.pdb
+C:\Users\petra\Desktop\fax\RP3\Fraud pianist\rp3-projekt\obj\Debug\piano.csprojAssemblyReference.cache
+C:\Users\petra\Desktop\fax\RP3\Fraud pianist\rp3-projekt\obj\Debug\piano.Form1.resources
+C:\Users\petra\Desktop\fax\RP3\Fraud pianist\rp3-projekt\obj\Debug\piano.Properties.Resources.resources
+C:\Users\petra\Desktop\fax\RP3\Fraud pianist\rp3-projekt\obj\Debug\piano.csproj.GenerateResource.cache
+C:\Users\petra\Desktop\fax\RP3\Fraud pianist\rp3-projekt\obj\Debug\piano.csproj.CoreCompileInputs.cache
+C:\Users\petra\Desktop\fax\RP3\Fraud pianist\rp3-projekt\obj\Debug\piano.exe
+C:\Users\petra\Desktop\fax\RP3\Fraud pianist\rp3-projekt\obj\Debug\piano.pdb
+C:\Users\petra\Desktop\fax\RP3\Fraud pianist\rp3-projekt\obj\Debug\piano.Piano.resources
