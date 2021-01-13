@@ -9,3 +9,27 @@ C:\Users\petra\Desktop\fax\RP3\Fraud pianist\rp3-projekt\obj\Debug\FraudPianist.
 C:\Users\petra\Desktop\fax\RP3\Fraud pianist\rp3-projekt\obj\Debug\piano.exe
 C:\Users\petra\Desktop\fax\RP3\Fraud pianist\rp3-projekt\obj\Debug\piano.pdb
 C:\Users\petra\Desktop\fax\RP3\Fraud pianist\rp3-projekt\obj\Debug\piano.FormGame.resources
+E:\Dominik\Documents\GitHub\rp3-projekt\bin\Debug\piano.exe.config
+E:\Dominik\Documents\GitHub\rp3-projekt\bin\Debug\piano.exe
+E:\Dominik\Documents\GitHub\rp3-projekt\bin\Debug\piano.pdb
+E:\Dominik\Documents\GitHub\rp3-projekt\obj\Debug\FraudPianist.csprojAssemblyReference.cache
+E:\Dominik\Documents\GitHub\rp3-projekt\obj\Debug\piano.FormGame.resources
+E:\Dominik\Documents\GitHub\rp3-projekt\obj\Debug\piano.Piano.resources
+E:\Dominik\Documents\GitHub\rp3-projekt\obj\Debug\piano.Properties.Resources.resources
+E:\Dominik\Documents\GitHub\rp3-projekt\obj\Debug\FraudPianist.csproj.GenerateResource.cache
+E:\Dominik\Documents\GitHub\rp3-projekt\obj\Debug\FraudPianist.csproj.CoreCompileInputs.cache
+E:\Dominik\Documents\GitHub\rp3-projekt\obj\Debug\piano.exe
+E:\Dominik\Documents\GitHub\rp3-projekt\obj\Debug\piano.pdb
+E:\Dominik\rp3\test\bin\Debug\piano.exe.config
+E:\Dominik\rp3\test\bin\Debug\piano.exe
+E:\Dominik\rp3\test\bin\Debug\piano.pdb
+E:\Dominik\rp3\test\obj\Debug\FraudPianist.csprojAssemblyReference.cache
+E:\Dominik\rp3\test\obj\Debug\piano.FormGame.resources
+E:\Dominik\rp3\test\obj\Debug\piano.Piano.resources
+E:\Dominik\rp3\test\obj\Debug\piano.Properties.Resources.resources
+E:\Dominik\rp3\test\obj\Debug\FraudPianist.csproj.GenerateResource.cache
+E:\Dominik\rp3\test\obj\Debug\FraudPianist.csproj.CoreCompileInputs.cache
+E:\Dominik\rp3\test\obj\Debug\piano.exe
+E:\Dominik\rp3\test\obj\Debug\piano.pdb
+E:\Dominik\rp3\test\obj\Debug\piano.MainMenu.resources
+E:\Dominik\rp3\test\obj\Debug\piano.SongList.resources

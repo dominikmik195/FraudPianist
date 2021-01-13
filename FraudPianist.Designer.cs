@@ -29,29 +29,50 @@ namespace piano
         /// </summary>
         private void InitializeComponent()
         {
+            this.buttonMenu = new System.Windows.Forms.Button();
             this.piano = new piano.Piano();
             this.SuspendLayout();
+            // 
+            // buttonMenu
+            // 
+            this.buttonMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonMenu.BackColor = System.Drawing.Color.Snow;
+            this.buttonMenu.FlatAppearance.BorderColor = System.Drawing.Color.Maroon;
+            this.buttonMenu.FlatAppearance.BorderSize = 5;
+            this.buttonMenu.FlatAppearance.MouseDownBackColor = System.Drawing.Color.IndianRed;
+            this.buttonMenu.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MistyRose;
+            this.buttonMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonMenu.Font = new System.Drawing.Font("Lucida Handwriting", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonMenu.Location = new System.Drawing.Point(1086, 12);
+            this.buttonMenu.Name = "buttonMenu";
+            this.buttonMenu.Size = new System.Drawing.Size(186, 49);
+            this.buttonMenu.TabIndex = 3;
+            this.buttonMenu.Text = "Main menu";
+            this.buttonMenu.UseVisualStyleBackColor = false;
+            this.buttonMenu.Visible = false;
+            this.buttonMenu.Click += new System.EventHandler(this.buttonMenu_Click);
             // 
             // piano
             // 
             this.piano.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.piano.Location = new System.Drawing.Point(0, 371);
+            this.piano.Location = new System.Drawing.Point(0, 358);
             this.piano.Margin = new System.Windows.Forms.Padding(2);
             this.piano.Name = "piano";
-            this.piano.Size = new System.Drawing.Size(1333, 303);
+            this.piano.Size = new System.Drawing.Size(1284, 303);
             this.piano.TabIndex = 0;
+            this.piano.Visible = false;
             // 
             // FormGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1333, 674);
+            this.ClientSize = new System.Drawing.Size(1284, 661);
+            this.Controls.Add(this.buttonMenu);
             this.Controls.Add(this.piano);
             this.KeyPreview = true;
             this.MinimumSize = new System.Drawing.Size(728, 420);
             this.Name = "FormGame";
             this.Text = "Fraud Pianist";
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FormGame_KeyPress);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FormGame_KeyUp);
             this.ResumeLayout(false);
 
@@ -60,6 +81,7 @@ namespace piano
         #endregion
 
         private Piano piano;
+        private System.Windows.Forms.Button buttonMenu;
     }
 }
 
