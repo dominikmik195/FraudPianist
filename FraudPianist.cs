@@ -20,7 +20,10 @@ namespace piano
         private SongList chooseSongs = new SongList();
         private KeySelection selectKeys = new KeySelection();
 
-        //
+        /// https://docs.microsoft.com/en-us/dotnet/api/system.windows.forms.keys?view=net-5.0
+        /// <summary>
+        /// Riječnik koji predstavlja trenutno aktivne igraće tipke. Ključ je naziv note, a vrijednost je naziv odgovarajuće tipke za tu notu na tipkovnici.
+        /// </summary>
         static Dictionary<string, string> gameKeys = new Dictionary<string, string>
         {
             {"G_", "Q"},
@@ -45,13 +48,9 @@ namespace piano
             {"D_2", "Oem6"}, //đ
             {"E2", "Oem5"} //ž
         };
-        string pressedKey;
 
-        public static Dictionary<string, string> GameKeys
-        {
-            get { return gameKeys; }
-            set { gameKeys = value; }
-        }
+        // Upravo pritisnuta tipka. Ukoliko niti jedna tipka nije pritisnuta vrijednost je "".
+        string pressedKey;
 
         public FormGame()
         {
@@ -128,6 +127,15 @@ namespace piano
             };
         }
 
+        #region Properties
+
+        public static Dictionary<string, string> GameKeys
+        {
+            get { return gameKeys; }
+            set { gameKeys = value; }
+        }
+
+        #endregion
 
         #region Events
 

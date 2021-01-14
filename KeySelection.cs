@@ -15,19 +15,12 @@ namespace piano
     /// </summary>
     public partial class KeySelection : Form
     {
-        Dictionary<string, string> currentKeys = new Dictionary<string, string>(); 
-
         public KeySelection()
         {
             InitializeComponent();
         }
 
         #region Events
-
-        private void pianoKeySelection_Load(object sender, EventArgs e)
-        {
-            currentKeys = FormGame.GameKeys;
-        }
 
         /// <summary>
         /// Klikom miša na gumb koji sadrži trenutno zadanu tipku za klavirsku tipku svira se ton 

@@ -35,6 +35,9 @@ namespace piano
 
         #region Events
 
+        /// <summary>
+        /// Događaj koji boja pritisnutu bijelu tipku klavira u "Orchid".
+        /// </summary>
         private void whiteButton_Click(object sender, EventArgs e)
         {
             if (e as System.Windows.Forms.MouseEventArgs != null)
@@ -47,6 +50,9 @@ namespace piano
                 (sender as Button).BackColor = Color.Orchid;
         }
 
+        /// <summary>
+        /// Događaj koji boja pritisnutu crnu tipku klavira i "DarkOrchid".
+        /// </summary>
         private void blackButton_Click(object sender, EventArgs e)
         {
             if (e as System.Windows.Forms.MouseEventArgs != null)
@@ -64,12 +70,18 @@ namespace piano
         #region Public
 
         /// <summary> 
-        /// Funkcija prima upravo pritisnutu tipku i provjerava koja je to tipka neovisno o tome je li CapsLock uključen ili nije.
-        /// Ukoliko je primljena tipka postavljena kao tipka klavira svira odgovarajući ton.
+        /// Funkcija prima upravo pritisnutu tipku i provjerava je li ona postavljena za neku od klavirskih tipki.
+        /// Ukoliko jest onemogućeva se pritisak drugih tipki klavira dok je ona pritisnuta i svira se odgovarajući ton.
+        /// Inače se "svira tišina".
         /// </summary>
+        /// <param name="keyPressed">String koji predstavlja naziv upravo pritisnute tipke.</param>
+        /// <param name="gameKeys">Riječnik igraćih tipki.</param>
         public void play(string keyPressed, Dictionary<string, string> gameKeys)
-        {    
-            disableOtherButtons(keyPressed, gameKeys);
+        {
+            if (gameKeys.FirstOrDefault(x => x.Value == keyPressed).Key != null)
+            {
+                disableOtherButtons(keyPressed, gameKeys);
+            }
 
             System.Media.SoundPlayer player = new System.Media.SoundPlayer();
 
@@ -164,30 +176,33 @@ namespace piano
                     break;
             }
 
-            player.Play();
+            player.Play();          
         }
 
         /// <summary> 
         /// Funkcija provjerava je li otpuštena tipka zaista tipka klavira. 
-        /// Ako jest postavlja boju tipke na boju defaultnu za odgovarajuću otpuštenu tipku.
+        /// Ako jest postavlja boju tipke na boju defaultnu za odgovarajuću (bijelu ili crnu) otpuštenu tipku i omogućava pritisak svih tipki klavira.
         /// </summary>
+        /// <param name="keyRealised">String koji predstavlja naziv upravo otpuštene tipke.</param>
+        /// <param name="gameKeys">Riječnik igraćih tipki.</param>
         public void keySilence(string keyRealised, Dictionary<string, string> gameKeys)
         {
             string buttonName = "btn" + gameKeys.FirstOrDefault(x => x.Value == keyRealised).Key;
             Button btn = this.Controls[buttonName] as Button;
 
-            if (btn != null && whites.Contains(gameKeys.FirstOrDefault(x => x.Value == keyRealised).Key))
+            if (btn != null)
             {
-                btn.BackColor = Color.White;
-            }
-            else if (btn != null && blacks.Contains(gameKeys.FirstOrDefault(x => x.Value == keyRealised).Key))
-            {
-                btn.BackColor = Color.Black;
+                if (whites.Contains(gameKeys.FirstOrDefault(x => x.Value == keyRealised).Key))
+                {
+                    btn.BackColor = Color.White;
+                }
+                else if (blacks.Contains(gameKeys.FirstOrDefault(x => x.Value == keyRealised).Key))
+                {
+                    btn.BackColor = Color.Black;
+                }
             }
 
             enableAllButtons();
-
-            Console.WriteLine("silece" + keyRealised);
         }
 
         #endregion
@@ -195,7 +210,7 @@ namespace piano
         #region Private
 
         /// <summary> 
-        /// Zaobljavanje dva donja vrha svakog gumba koji predstavlja tipku klavira.
+        /// Funkcija zaobljava dva donja vrha svakog gumba koji predstavlja tipku klavira.
         /// </summary>
         private void reshape_buttonts()
         {
@@ -220,7 +235,7 @@ namespace piano
         }
 
         /// <summary> 
-        /// Funkcija nakon ispuštanja tipke vraća u funkciju sve funkcionalne tipke klavira (izuzima tipku "g").
+        /// Funkcija stavlja u funkciju sve tipke klavira koje sudjeluju u igri (izuzima tipku "g").
         /// </summary>
         private void enableAllButtons()
         {
@@ -235,9 +250,11 @@ namespace piano
             }
         }
 
-        /// <summary> 
-        /// Funkcija onemogućava pritisak drugih tipki dok je neka tipka klavira stisnuta. Tipka "g" je već onemogućena.
+        /// <summary>
+        /// Funkcija onemogućava pritisak svih klavirskih tipki izuzev tipke "key". Tipka "g" je već onemogućena.
         /// </summary>
+        /// <param name="key">String koji predstavlja naziv upravo pritisnute tipke.</param>
+        /// <param name="gameKeys">Riječnik igraćih tipki.</param>
         private void disableOtherButtons(string key, Dictionary<string, string> gameKeys)
         {
             for (int i = 1; i < buttons.Count; i++)
@@ -250,7 +267,6 @@ namespace piano
                 }
             }
         }
-
 
         #endregion
     }

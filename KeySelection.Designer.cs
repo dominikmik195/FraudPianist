@@ -701,7 +701,6 @@ namespace piano
             this.Name = "KeySelection";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Key Selection";
-            this.Load += new System.EventHandler(this.pianoKeySelection_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

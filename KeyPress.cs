@@ -81,8 +81,9 @@ namespace piano
         #region Private
 
         /// <summary>
-        /// Funkcija koja provjerava je li novoodabrana tipka za neki ton već u upotrebi.
+        /// Funkcija koja provjerava je se tipka "key" već koristi za neki ton.
         /// </summary>
+        /// <param name="key">Ime tipke na tipkovnici.</param>
         private bool isKeyUsed(string key)
         {
             foreach (KeyValuePair<string, string> dict in FormGame.GameKeys)
