@@ -257,5 +257,14 @@ namespace piano.Properties {
                 return ResourceManager.GetStream("silence", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to C1D1C1 G1G1 A1A1 G1  F1F1 E1E1 D1D1 C1   G1G1 F1F1 E1E1 D1  G1G1 F1F1 E1E1 D1   C1C1 G1G1 A1A1 G1  F1F1 E1E1 D1D1 C1.
+        /// </summary>
+        internal static string twinkle {
+            get {
+                return ResourceManager.GetString("twinkle", resourceCulture);
+            }
+        }
     }
 }

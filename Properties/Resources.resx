@@ -184,4 +184,7 @@
   <data name="silence" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>tonovi\silence.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="twinkle" xml:space="preserve">
+    <value>C1D1C1 G1G1 A1A1 G1  F1F1 E1E1 D1D1 C1   G1G1 F1F1 E1E1 D1  G1G1 F1F1 E1E1 D1   C1C1 G1G1 A1A1 G1  F1F1 E1E1 D1D1 C1</value>
+  </data>
 </root>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,8 @@ namespace piano
 {
     public partial class FormGame : Form
     {
+        private Game game;
+
         private MainMenu newMenu = new MainMenu();
         private SongList chooseSongs = new SongList();
         private KeySelection selectKeys = new KeySelection();
@@ -65,29 +68,43 @@ namespace piano
             chooseSongs.Visible = false;
             Controls.Add(chooseSongs);
 
+            Controls["tilesBox"].Visible = false;
+
             chooseSongs.Song1 += (sender, e) =>
             {
+                game = new Game(1);
+                Controls["tilesBox"].Visible = true;
                 chooseSongs.Visible = false;
                 piano.Visible = true;
                 buttonMenu.Visible = true;
                 KeyPreview = true;
                 KeyDown += new KeyEventHandler(piano_KeyDown);
+                timer1.Start();
+                timer2.Start();
             };
             chooseSongs.Song2 += (sender, e) =>
             {
+                game = new Game(2);
+                Controls["tilesBox"].Visible = true;
                 chooseSongs.Visible = false;
                 piano.Visible = true;
                 buttonMenu.Visible = true;
                 KeyPreview = true;
                 KeyDown += new KeyEventHandler(piano_KeyDown);
+                timer1.Start();
+                timer2.Start();
             };
             chooseSongs.Song3 += (sender, e) =>
             {
+                game = new Game(3);
+                Controls["tilesBox"].Visible = true;
                 chooseSongs.Visible = false;
                 piano.Visible = true;
                 buttonMenu.Visible = true;
                 KeyPreview = true;
                 KeyDown += new KeyEventHandler(piano_KeyDown);
+                timer1.Start();
+                timer2.Start();
             };
             chooseSongs.Menu += (sender, e) =>
             {
@@ -119,8 +136,10 @@ namespace piano
             KeyDown -= new KeyEventHandler(piano_KeyDown);
             piano.Visible = false;
             buttonMenu.Visible = false;
+            Controls["tilesBox"].Visible = false;
             KeyPreview = false;
             newMenu.Visible = true;
+
         }
 
         private void piano_KeyDown(object sender, KeyEventArgs e)
@@ -132,9 +151,18 @@ namespace piano
                 return;
             }
             else
-            {
+            {              
                 piano.play(name, gameKeys);
                 pressedKey = name;
+
+                string s = e.KeyCode.ToString();
+                // provjeri je li igrač odsvirao točnu notu
+                string note = gameKeys.FirstOrDefault(x => x.Value == e.KeyCode.ToString()).Key;
+                if (note != null && game.lowestTile != null && note.Equals(game.lowestTile.id))
+                {
+                    renderHit(Controls["piano"].Controls["btn" + note] as Button);
+                    game.hit();
+                }
             }
         }
 
@@ -153,6 +181,32 @@ namespace piano
            // Application.OpenForms["FormGame"].Controls["piano"].Focus();
         }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            game.update();
+            game.render(this.Controls["tilesBox"] as PictureBox);
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            game.parseOneNote();
+        }
         #endregion
+
+        //TODO
+        private void renderHit(Button button)
+        {
+            Graphics g = CreateGraphics();
+            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+
+            LinearGradientBrush brush = new LinearGradientBrush(
+                new Point(0, this.Controls["tilesBox"].Height),
+                new Point(0, 0),
+                Color.Orchid,
+                Color.LightCyan
+            );
+
+            g.FillRectangle(brush, button.Location.X, 0, button.Width, this.Controls["tilesBox"].Height);
+        }
     }
 }
