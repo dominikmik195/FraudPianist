@@ -62,13 +62,14 @@ namespace piano
             this.btng.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btng.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btng.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btng.Location = new System.Drawing.Point(-25, 0);
-            this.btng.Margin = new System.Windows.Forms.Padding(2);
+            this.btng.Location = new System.Drawing.Point(-33, 0);
+            this.btng.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btng.Name = "btng";
-            this.btng.Size = new System.Drawing.Size(80, 300);
+            this.btng.Size = new System.Drawing.Size(107, 369);
             this.btng.TabIndex = 13;
             this.btng.TabStop = false;
             this.btng.UseVisualStyleBackColor = false;
+            this.btng.Click += new System.EventHandler(this.whiteButton_Click);
             // 
             // btnG_
             // 
@@ -79,14 +80,14 @@ namespace piano
             this.btnG_.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
             this.btnG_.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
             this.btnG_.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG_.Location = new System.Drawing.Point(29, 0);
-            this.btnG_.Margin = new System.Windows.Forms.Padding(2);
+            this.btnG_.Location = new System.Drawing.Point(39, 0);
+            this.btnG_.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnG_.Name = "btnG_";
-            this.btnG_.Size = new System.Drawing.Size(55, 170);
+            this.btnG_.Size = new System.Drawing.Size(73, 209);
             this.btnG_.TabIndex = 14;
             this.btnG_.TabStop = false;
             this.btnG_.UseVisualStyleBackColor = false;
-            this.btnG_.Click += new System.EventHandler(this.btnG__Click);
+            this.btnG_.Click += new System.EventHandler(this.blackButton_Click);
             // 
             // btnA
             // 
@@ -97,14 +98,14 @@ namespace piano
             this.btnA.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnA.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnA.Location = new System.Drawing.Point(58, 0);
-            this.btnA.Margin = new System.Windows.Forms.Padding(2);
+            this.btnA.Location = new System.Drawing.Point(77, 0);
+            this.btnA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnA.Name = "btnA";
-            this.btnA.Size = new System.Drawing.Size(80, 300);
+            this.btnA.Size = new System.Drawing.Size(107, 369);
             this.btnA.TabIndex = 15;
             this.btnA.TabStop = false;
             this.btnA.UseVisualStyleBackColor = false;
-            this.btnA.Click += new System.EventHandler(this.btnA_Click);
+            this.btnA.Click += new System.EventHandler(this.whiteButton_Click);
             // 
             // btnH
             // 
@@ -115,14 +116,14 @@ namespace piano
             this.btnH.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnH.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnH.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnH.Location = new System.Drawing.Point(141, 0);
-            this.btnH.Margin = new System.Windows.Forms.Padding(2);
+            this.btnH.Location = new System.Drawing.Point(188, 0);
+            this.btnH.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnH.Name = "btnH";
-            this.btnH.Size = new System.Drawing.Size(80, 300);
+            this.btnH.Size = new System.Drawing.Size(107, 369);
             this.btnH.TabIndex = 16;
             this.btnH.TabStop = false;
             this.btnH.UseVisualStyleBackColor = false;
-            this.btnH.Click += new System.EventHandler(this.btnH_Click);
+            this.btnH.Click += new System.EventHandler(this.whiteButton_Click);
             // 
             // btnC1
             // 
@@ -133,14 +134,14 @@ namespace piano
             this.btnC1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnC1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnC1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnC1.Location = new System.Drawing.Point(224, 0);
-            this.btnC1.Margin = new System.Windows.Forms.Padding(2);
+            this.btnC1.Location = new System.Drawing.Point(299, 0);
+            this.btnC1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnC1.Name = "btnC1";
-            this.btnC1.Size = new System.Drawing.Size(80, 300);
+            this.btnC1.Size = new System.Drawing.Size(107, 369);
             this.btnC1.TabIndex = 17;
             this.btnC1.TabStop = false;
             this.btnC1.UseVisualStyleBackColor = false;
-            this.btnC1.Click += new System.EventHandler(this.btnC1_Click);
+            this.btnC1.Click += new System.EventHandler(this.whiteButton_Click);
             // 
             // btnD1
             // 
@@ -151,14 +152,14 @@ namespace piano
             this.btnD1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnD1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnD1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnD1.Location = new System.Drawing.Point(307, 0);
-            this.btnD1.Margin = new System.Windows.Forms.Padding(2);
+            this.btnD1.Location = new System.Drawing.Point(409, 0);
+            this.btnD1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnD1.Name = "btnD1";
-            this.btnD1.Size = new System.Drawing.Size(80, 300);
+            this.btnD1.Size = new System.Drawing.Size(107, 369);
             this.btnD1.TabIndex = 18;
             this.btnD1.TabStop = false;
             this.btnD1.UseVisualStyleBackColor = false;
-            this.btnD1.Click += new System.EventHandler(this.btnD1_Click);
+            this.btnD1.Click += new System.EventHandler(this.whiteButton_Click);
             // 
             // btnE1
             // 
@@ -169,14 +170,14 @@ namespace piano
             this.btnE1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnE1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnE1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnE1.Location = new System.Drawing.Point(390, 0);
-            this.btnE1.Margin = new System.Windows.Forms.Padding(2);
+            this.btnE1.Location = new System.Drawing.Point(520, 0);
+            this.btnE1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnE1.Name = "btnE1";
-            this.btnE1.Size = new System.Drawing.Size(80, 300);
+            this.btnE1.Size = new System.Drawing.Size(107, 369);
             this.btnE1.TabIndex = 19;
             this.btnE1.TabStop = false;
             this.btnE1.UseVisualStyleBackColor = false;
-            this.btnE1.Click += new System.EventHandler(this.btnE1_Click);
+            this.btnE1.Click += new System.EventHandler(this.whiteButton_Click);
             // 
             // btnF1
             // 
@@ -187,15 +188,14 @@ namespace piano
             this.btnF1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnF1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnF1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnF1.Location = new System.Drawing.Point(473, 0);
-            this.btnF1.Margin = new System.Windows.Forms.Padding(2);
+            this.btnF1.Location = new System.Drawing.Point(631, 0);
+            this.btnF1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnF1.Name = "btnF1";
-            this.btnF1.Size = new System.Drawing.Size(80, 300);
+            this.btnF1.Size = new System.Drawing.Size(107, 369);
             this.btnF1.TabIndex = 20;
             this.btnF1.TabStop = false;
             this.btnF1.UseVisualStyleBackColor = false;
-            this.btnF1.Click += new System.EventHandler(this.btnF1_Click);
-            // 
+            this.btnF1.Click += new System.EventHandler(this.whiteButton_Click);
             // btnG1
             // 
             this.btnG1.BackColor = System.Drawing.SystemColors.Window;
@@ -205,14 +205,14 @@ namespace piano
             this.btnG1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnG1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnG1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnG1.Location = new System.Drawing.Point(556, 0);
-            this.btnG1.Margin = new System.Windows.Forms.Padding(2);
+            this.btnG1.Location = new System.Drawing.Point(741, 0);
+            this.btnG1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnG1.Name = "btnG1";
-            this.btnG1.Size = new System.Drawing.Size(80, 300);
+            this.btnG1.Size = new System.Drawing.Size(107, 369);
             this.btnG1.TabIndex = 21;
             this.btnG1.TabStop = false;
             this.btnG1.UseVisualStyleBackColor = false;
-            this.btnG1.Click += new System.EventHandler(this.btnG1_Click);
+            this.btnG1.Click += new System.EventHandler(this.whiteButton_Click);
             // 
             // btnA1
             // 
@@ -223,14 +223,14 @@ namespace piano
             this.btnA1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnA1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnA1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnA1.Location = new System.Drawing.Point(639, 0);
-            this.btnA1.Margin = new System.Windows.Forms.Padding(2);
+            this.btnA1.Location = new System.Drawing.Point(852, 0);
+            this.btnA1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnA1.Name = "btnA1";
-            this.btnA1.Size = new System.Drawing.Size(80, 300);
+            this.btnA1.Size = new System.Drawing.Size(107, 369);
             this.btnA1.TabIndex = 22;
             this.btnA1.TabStop = false;
             this.btnA1.UseVisualStyleBackColor = false;
-            this.btnA1.Click += new System.EventHandler(this.btnA1_Click);
+            this.btnA1.Click += new System.EventHandler(this.whiteButton_Click);
             // 
             // btnH1
             // 
@@ -241,14 +241,14 @@ namespace piano
             this.btnH1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnH1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnH1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnH1.Location = new System.Drawing.Point(722, 0);
-            this.btnH1.Margin = new System.Windows.Forms.Padding(2);
+            this.btnH1.Location = new System.Drawing.Point(963, 0);
+            this.btnH1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnH1.Name = "btnH1";
-            this.btnH1.Size = new System.Drawing.Size(80, 300);
+            this.btnH1.Size = new System.Drawing.Size(107, 369);
             this.btnH1.TabIndex = 23;
             this.btnH1.TabStop = false;
             this.btnH1.UseVisualStyleBackColor = false;
-            this.btnH1.Click += new System.EventHandler(this.btnH1_Click);
+            this.btnH1.Click += new System.EventHandler(this.whiteButton_Click);
             // 
             // btnC2
             // 
@@ -259,14 +259,14 @@ namespace piano
             this.btnC2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnC2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnC2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnC2.Location = new System.Drawing.Point(805, 0);
-            this.btnC2.Margin = new System.Windows.Forms.Padding(2);
+            this.btnC2.Location = new System.Drawing.Point(1073, 0);
+            this.btnC2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnC2.Name = "btnC2";
-            this.btnC2.Size = new System.Drawing.Size(80, 300);
+            this.btnC2.Size = new System.Drawing.Size(107, 369);
             this.btnC2.TabIndex = 24;
             this.btnC2.TabStop = false;
             this.btnC2.UseVisualStyleBackColor = false;
-            this.btnC2.Click += new System.EventHandler(this.btnC2_Click);
+            this.btnC2.Click += new System.EventHandler(this.whiteButton_Click);
             // 
             // btnD2
             // 
@@ -277,14 +277,14 @@ namespace piano
             this.btnD2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnD2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnD2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnD2.Location = new System.Drawing.Point(888, 0);
-            this.btnD2.Margin = new System.Windows.Forms.Padding(2);
+            this.btnD2.Location = new System.Drawing.Point(1184, 0);
+            this.btnD2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnD2.Name = "btnD2";
-            this.btnD2.Size = new System.Drawing.Size(80, 300);
+            this.btnD2.Size = new System.Drawing.Size(107, 369);
             this.btnD2.TabIndex = 25;
             this.btnD2.TabStop = false;
             this.btnD2.UseVisualStyleBackColor = false;
-            this.btnD2.Click += new System.EventHandler(this.btnD2_Click);
+            this.btnD2.Click += new System.EventHandler(this.whiteButton_Click);
             // 
             // btnE2
             // 
@@ -295,14 +295,14 @@ namespace piano
             this.btnE2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnE2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnE2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnE2.Location = new System.Drawing.Point(971, 0);
-            this.btnE2.Margin = new System.Windows.Forms.Padding(2);
+            this.btnE2.Location = new System.Drawing.Point(1295, 0);
+            this.btnE2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnE2.Name = "btnE2";
-            this.btnE2.Size = new System.Drawing.Size(80, 300);
+            this.btnE2.Size = new System.Drawing.Size(107, 369);
             this.btnE2.TabIndex = 26;
             this.btnE2.TabStop = false;
             this.btnE2.UseVisualStyleBackColor = false;
-            this.btnE2.Click += new System.EventHandler(this.btnE2_Click);
+            this.btnE2.Click += new System.EventHandler(this.whiteButton_Click);
             // 
             // btnA_
             // 
@@ -313,14 +313,14 @@ namespace piano
             this.btnA_.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
             this.btnA_.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
             this.btnA_.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnA_.Location = new System.Drawing.Point(112, 0);
-            this.btnA_.Margin = new System.Windows.Forms.Padding(2);
+            this.btnA_.Location = new System.Drawing.Point(149, 0);
+            this.btnA_.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnA_.Name = "btnA_";
-            this.btnA_.Size = new System.Drawing.Size(55, 170);
+            this.btnA_.Size = new System.Drawing.Size(73, 209);
             this.btnA_.TabIndex = 28;
             this.btnA_.TabStop = false;
             this.btnA_.UseVisualStyleBackColor = false;
-            this.btnA_.Click += new System.EventHandler(this.btnA__Click);
+            this.btnA_.Click += new System.EventHandler(this.blackButton_Click);
             // 
             // btnC_1
             // 
@@ -331,14 +331,14 @@ namespace piano
             this.btnC_1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
             this.btnC_1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
             this.btnC_1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnC_1.Location = new System.Drawing.Point(278, 0);
-            this.btnC_1.Margin = new System.Windows.Forms.Padding(2);
+            this.btnC_1.Location = new System.Drawing.Point(371, 0);
+            this.btnC_1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnC_1.Name = "btnC_1";
-            this.btnC_1.Size = new System.Drawing.Size(55, 170);
+            this.btnC_1.Size = new System.Drawing.Size(73, 209);
             this.btnC_1.TabIndex = 30;
             this.btnC_1.TabStop = false;
             this.btnC_1.UseVisualStyleBackColor = false;
-            this.btnC_1.Click += new System.EventHandler(this.btnC_1_Click);
+            this.btnC_1.Click += new System.EventHandler(this.blackButton_Click);
             // 
             // btnD_1
             // 
@@ -349,14 +349,14 @@ namespace piano
             this.btnD_1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
             this.btnD_1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
             this.btnD_1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnD_1.Location = new System.Drawing.Point(361, 0);
-            this.btnD_1.Margin = new System.Windows.Forms.Padding(2);
+            this.btnD_1.Location = new System.Drawing.Point(481, 0);
+            this.btnD_1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnD_1.Name = "btnD_1";
-            this.btnD_1.Size = new System.Drawing.Size(55, 170);
+            this.btnD_1.Size = new System.Drawing.Size(73, 209);
             this.btnD_1.TabIndex = 31;
             this.btnD_1.TabStop = false;
             this.btnD_1.UseVisualStyleBackColor = false;
-            this.btnD_1.Click += new System.EventHandler(this.btnD_1_Click);
+            this.btnD_1.Click += new System.EventHandler(this.blackButton_Click);
             // 
             // btnF_1
             // 
@@ -367,14 +367,14 @@ namespace piano
             this.btnF_1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
             this.btnF_1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
             this.btnF_1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnF_1.Location = new System.Drawing.Point(527, 0);
-            this.btnF_1.Margin = new System.Windows.Forms.Padding(2);
+            this.btnF_1.Location = new System.Drawing.Point(703, 0);
+            this.btnF_1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnF_1.Name = "btnF_1";
-            this.btnF_1.Size = new System.Drawing.Size(55, 170);
+            this.btnF_1.Size = new System.Drawing.Size(73, 209);
             this.btnF_1.TabIndex = 32;
             this.btnF_1.TabStop = false;
             this.btnF_1.UseVisualStyleBackColor = false;
-            this.btnF_1.Click += new System.EventHandler(this.btnF_1_Click);
+            this.btnF_1.Click += new System.EventHandler(this.blackButton_Click);
             // 
             // btnG_1
             // 
@@ -385,14 +385,14 @@ namespace piano
             this.btnG_1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
             this.btnG_1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
             this.btnG_1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnG_1.Location = new System.Drawing.Point(611, 0);
-            this.btnG_1.Margin = new System.Windows.Forms.Padding(2);
+            this.btnG_1.Location = new System.Drawing.Point(815, 0);
+            this.btnG_1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnG_1.Name = "btnG_1";
-            this.btnG_1.Size = new System.Drawing.Size(55, 170);
+            this.btnG_1.Size = new System.Drawing.Size(73, 209);
             this.btnG_1.TabIndex = 33;
             this.btnG_1.TabStop = false;
             this.btnG_1.UseVisualStyleBackColor = false;
-            this.btnG_1.Click += new System.EventHandler(this.btnG_1_Click);
+            this.btnG_1.Click += new System.EventHandler(this.blackButton_Click);
             // 
             // btnC_2
             // 
@@ -403,14 +403,14 @@ namespace piano
             this.btnC_2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
             this.btnC_2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
             this.btnC_2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnC_2.Location = new System.Drawing.Point(859, 0);
-            this.btnC_2.Margin = new System.Windows.Forms.Padding(2);
+            this.btnC_2.Location = new System.Drawing.Point(1145, 0);
+            this.btnC_2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnC_2.Name = "btnC_2";
-            this.btnC_2.Size = new System.Drawing.Size(55, 170);
+            this.btnC_2.Size = new System.Drawing.Size(73, 209);
             this.btnC_2.TabIndex = 35;
             this.btnC_2.TabStop = false;
             this.btnC_2.UseVisualStyleBackColor = false;
-            this.btnC_2.Click += new System.EventHandler(this.btnC_2_Click);
+            this.btnC_2.Click += new System.EventHandler(this.blackButton_Click);
             // 
             // btnD_2
             // 
@@ -421,14 +421,14 @@ namespace piano
             this.btnD_2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
             this.btnD_2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
             this.btnD_2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnD_2.Location = new System.Drawing.Point(939, 0);
-            this.btnD_2.Margin = new System.Windows.Forms.Padding(2);
+            this.btnD_2.Location = new System.Drawing.Point(1252, 0);
+            this.btnD_2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnD_2.Name = "btnD_2";
-            this.btnD_2.Size = new System.Drawing.Size(55, 170);
+            this.btnD_2.Size = new System.Drawing.Size(73, 209);
             this.btnD_2.TabIndex = 36;
             this.btnD_2.TabStop = false;
             this.btnD_2.UseVisualStyleBackColor = false;
-            this.btnD_2.Click += new System.EventHandler(this.btnD_2_Click);
+            this.btnD_2.Click += new System.EventHandler(this.blackButton_Click);
             // 
             // btnA_1
             // 
@@ -439,19 +439,20 @@ namespace piano
             this.btnA_1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
             this.btnA_1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
             this.btnA_1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnA_1.Location = new System.Drawing.Point(693, 0);
-            this.btnA_1.Margin = new System.Windows.Forms.Padding(2);
+            this.btnA_1.Location = new System.Drawing.Point(924, 0);
+            this.btnA_1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnA_1.Name = "btnA_1";
-            this.btnA_1.Size = new System.Drawing.Size(55, 170);
+            this.btnA_1.Size = new System.Drawing.Size(73, 209);
             this.btnA_1.TabIndex = 34;
             this.btnA_1.TabStop = false;
             this.btnA_1.UseVisualStyleBackColor = false;
-            this.btnA_1.Click += new System.EventHandler(this.btnA_1_Click);
+            this.btnA_1.Click += new System.EventHandler(this.blackButton_Click);
             // 
             // Piano
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.Controls.Add(this.btnD_2);
             this.Controls.Add(this.btnC_2);
             this.Controls.Add(this.btnA_1);
@@ -474,9 +475,9 @@ namespace piano
             this.Controls.Add(this.btnG_);
             this.Controls.Add(this.btnA);
             this.Controls.Add(this.btng);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Piano";
-            this.Size = new System.Drawing.Size(1032, 303);
+            this.Size = new System.Drawing.Size(1376, 373);
             this.ResumeLayout(false);
 
         }

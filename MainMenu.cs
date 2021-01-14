@@ -15,7 +15,9 @@ namespace piano
         public MainMenu()
         {
             InitializeComponent();
+
         }
+
         public event EventHandler NewGame, Settings, HowTo, Quit;
 
         private void buttonQuit_Click(object sender, EventArgs e)

@@ -54,23 +54,26 @@ namespace piano
             // 
             // piano
             // 
+            this.piano.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.piano.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.piano.Location = new System.Drawing.Point(0, 358);
-            this.piano.Margin = new System.Windows.Forms.Padding(2);
+            this.piano.Location = new System.Drawing.Point(0, 457);
+            this.piano.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.piano.Name = "piano";
-            this.piano.Size = new System.Drawing.Size(1284, 303);
+            this.piano.Size = new System.Drawing.Size(1777, 373);
             this.piano.TabIndex = 0;
             this.piano.Visible = false;
+            this.piano.KeyDown += new System.Windows.Forms.KeyEventHandler(this.piano_KeyDown);
             // 
             // FormGame
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1284, 661);
+            this.ClientSize = new System.Drawing.Size(1777, 830);
             this.Controls.Add(this.buttonMenu);
             this.Controls.Add(this.piano);
             this.KeyPreview = true;
-            this.MinimumSize = new System.Drawing.Size(728, 420);
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MinimumSize = new System.Drawing.Size(965, 506);
             this.Name = "FormGame";
             this.Text = "Fraud Pianist";
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FormGame_KeyUp);
