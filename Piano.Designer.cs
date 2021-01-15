@@ -196,6 +196,7 @@ namespace piano
             this.btnF1.TabStop = false;
             this.btnF1.UseVisualStyleBackColor = false;
             this.btnF1.Click += new System.EventHandler(this.whiteButton_Click);
+            // 
             // btnG1
             // 
             this.btnG1.BackColor = System.Drawing.SystemColors.Window;
@@ -477,7 +478,7 @@ namespace piano
             this.Controls.Add(this.btng);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Piano";
-            this.Size = new System.Drawing.Size(1376, 373);
+            this.Size = new System.Drawing.Size(1405, 373);
             this.ResumeLayout(false);
 
         }

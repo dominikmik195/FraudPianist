@@ -16,20 +16,24 @@ namespace piano
     public partial class MainMenu : UserControl
     {
         /// <summary>
-        /// Konstruktor.
+        /// Konstruktor klase.
         /// </summary>
         public MainMenu()
         {
             InitializeComponent();
-
         }
 
-        public event EventHandler NewGame, Settings, HowTo, Quit;
+        public event EventHandler NewGame, Practice, Settings, HowTo, Quit;
 
         // funkcije koje reagiraju na tipke menija
-        private void buttonQuit_Click(object sender, EventArgs e)
+        private void buttonNewGame_Click(object sender, EventArgs e)
         {
-            if (Quit != null) Quit(sender, e);
+            if (NewGame != null) NewGame(sender, e);
+        }
+
+        private void buttonPractice_Click(object sender, EventArgs e)
+        {
+            if (Practice != null) Practice(sender, e);
         }
 
         private void buttonHowTo_Click(object sender, EventArgs e)
@@ -42,9 +46,10 @@ namespace piano
             if (Settings != null) Settings(sender, e);
         }
 
-        private void buttonNewGame_Click(object sender, EventArgs e)
+        private void buttonQuit_Click(object sender, EventArgs e)
         {
-            if (NewGame != null) NewGame(sender, e);
+            if (Quit != null) Quit(sender, e);
         }
+
     }
 }

@@ -36,7 +36,8 @@ namespace piano
         #region Events
 
         /// <summary>
-        /// Događaj koji boja pritisnutu bijelu tipku klavira u "Orchid".
+        /// Događaj koji u igri boja pritisnutu bijelu tipku klavira u "Orchid". 
+        /// Ukoliko je događaj pozvan iz KeySelection forme  za vježbanje tipke se ne bojaju na pritisak.
         /// </summary>
         private void whiteButton_Click(object sender, EventArgs e)
         {
@@ -51,7 +52,8 @@ namespace piano
         }
 
         /// <summary>
-        /// Događaj koji boja pritisnutu crnu tipku klavira i "DarkOrchid".
+        /// Događaj koji u igri boja pritisnutu crnu tipku klavira u "DarkOrchid".
+        /// Ukoliko je događaj pozvan iz KeySelection forme  za vježbanje tipke se ne bojaju na pritisak.
         /// </summary>
         private void blackButton_Click(object sender, EventArgs e)
         {
@@ -75,7 +77,7 @@ namespace piano
         /// Inače se "svira tišina".
         /// </summary>
         /// <param name="keyPressed">String koji predstavlja naziv upravo pritisnute tipke.</param>
-        /// <param name="gameKeys">Riječnik igraćih tipki.</param>
+        /// <param name="gameKeys">Riječnik igračih tipki.</param>
         public void play(string keyPressed, Dictionary<string, string> gameKeys)
         {
             if (gameKeys.FirstOrDefault(x => x.Value == keyPressed).Key != null)

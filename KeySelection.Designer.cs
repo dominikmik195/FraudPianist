@@ -373,12 +373,13 @@ namespace piano
             // keyA
             // 
             this.keyA.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.keyA.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.keyA.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.keyA.Location = new System.Drawing.Point(89, 266);
             this.keyA.Margin = new System.Windows.Forms.Padding(4);
             this.keyA.Name = "keyA";
             this.keyA.Size = new System.Drawing.Size(85, 90);
             this.keyA.TabIndex = 22;
+            this.keyA.TabStop = false;
             this.keyA.Text = "A";
             this.keyA.UseVisualStyleBackColor = true;
             this.keyA.MouseClick += new System.Windows.Forms.MouseEventHandler(this.key_MouseClick);
@@ -405,6 +406,7 @@ namespace piano
             this.keyD_2.Name = "keyD_2";
             this.keyD_2.Size = new System.Drawing.Size(59, 53);
             this.keyD_2.TabIndex = 21;
+            this.keyD_2.TabStop = false;
             this.keyD_2.Text = "Đ";
             this.keyD_2.UseVisualStyleBackColor = false;
             this.keyD_2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.key_MouseClick);
@@ -419,6 +421,7 @@ namespace piano
             this.keyC_2.Name = "keyC_2";
             this.keyC_2.Size = new System.Drawing.Size(59, 53);
             this.keyC_2.TabIndex = 20;
+            this.keyC_2.TabStop = false;
             this.keyC_2.Text = "Š";
             this.keyC_2.UseVisualStyleBackColor = false;
             this.keyC_2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.key_MouseClick);
@@ -433,6 +436,7 @@ namespace piano
             this.keyA_1.Name = "keyA_1";
             this.keyA_1.Size = new System.Drawing.Size(59, 53);
             this.keyA_1.TabIndex = 19;
+            this.keyA_1.TabStop = false;
             this.keyA_1.Text = "O";
             this.keyA_1.UseVisualStyleBackColor = false;
             this.keyA_1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.key_MouseClick);
@@ -447,6 +451,7 @@ namespace piano
             this.keyG_1.Name = "keyG_1";
             this.keyG_1.Size = new System.Drawing.Size(59, 53);
             this.keyG_1.TabIndex = 18;
+            this.keyG_1.TabStop = false;
             this.keyG_1.Text = "I";
             this.keyG_1.UseVisualStyleBackColor = false;
             this.keyG_1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.key_MouseClick);
@@ -461,6 +466,7 @@ namespace piano
             this.keyF_1.Name = "keyF_1";
             this.keyF_1.Size = new System.Drawing.Size(59, 53);
             this.keyF_1.TabIndex = 17;
+            this.keyF_1.TabStop = false;
             this.keyF_1.Text = "U";
             this.keyF_1.UseVisualStyleBackColor = false;
             this.keyF_1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.key_MouseClick);
@@ -475,6 +481,7 @@ namespace piano
             this.keyD_1.Name = "keyD_1";
             this.keyD_1.Size = new System.Drawing.Size(59, 53);
             this.keyD_1.TabIndex = 16;
+            this.keyD_1.TabStop = false;
             this.keyD_1.Text = "T";
             this.keyD_1.UseVisualStyleBackColor = false;
             this.keyD_1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.key_MouseClick);
@@ -489,6 +496,7 @@ namespace piano
             this.keyC_1.Name = "keyC_1";
             this.keyC_1.Size = new System.Drawing.Size(59, 53);
             this.keyC_1.TabIndex = 15;
+            this.keyC_1.TabStop = false;
             this.keyC_1.Text = "R";
             this.keyC_1.UseVisualStyleBackColor = false;
             this.keyC_1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.key_MouseClick);
@@ -503,6 +511,7 @@ namespace piano
             this.keyA_.Name = "keyA_";
             this.keyA_.Size = new System.Drawing.Size(59, 53);
             this.keyA_.TabIndex = 14;
+            this.keyA_.TabStop = false;
             this.keyA_.Text = "W";
             this.keyA_.UseVisualStyleBackColor = false;
             this.keyA_.MouseClick += new System.Windows.Forms.MouseEventHandler(this.key_MouseClick);
@@ -517,6 +526,7 @@ namespace piano
             this.keyG_.Name = "keyG_";
             this.keyG_.Size = new System.Drawing.Size(59, 53);
             this.keyG_.TabIndex = 13;
+            this.keyG_.TabStop = false;
             this.keyG_.Text = "Q";
             this.keyG_.UseVisualStyleBackColor = false;
             this.keyG_.MouseClick += new System.Windows.Forms.MouseEventHandler(this.key_MouseClick);
@@ -530,6 +540,7 @@ namespace piano
             this.keyE2.Name = "keyE2";
             this.keyE2.Size = new System.Drawing.Size(85, 90);
             this.keyE2.TabIndex = 12;
+            this.keyE2.TabStop = false;
             this.keyE2.Text = "Ž";
             this.keyE2.UseVisualStyleBackColor = true;
             this.keyE2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.key_MouseClick);
@@ -543,6 +554,7 @@ namespace piano
             this.keyD2.Name = "keyD2";
             this.keyD2.Size = new System.Drawing.Size(85, 90);
             this.keyD2.TabIndex = 11;
+            this.keyD2.TabStop = false;
             this.keyD2.Text = "Ć";
             this.keyD2.UseVisualStyleBackColor = true;
             this.keyD2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.key_MouseClick);
@@ -556,6 +568,7 @@ namespace piano
             this.keyC2.Name = "keyC2";
             this.keyC2.Size = new System.Drawing.Size(85, 90);
             this.keyC2.TabIndex = 10;
+            this.keyC2.TabStop = false;
             this.keyC2.Text = "Č";
             this.keyC2.UseVisualStyleBackColor = true;
             this.keyC2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.key_MouseClick);
@@ -569,6 +582,7 @@ namespace piano
             this.keyH1.Name = "keyH1";
             this.keyH1.Size = new System.Drawing.Size(85, 90);
             this.keyH1.TabIndex = 9;
+            this.keyH1.TabStop = false;
             this.keyH1.Text = "L";
             this.keyH1.UseVisualStyleBackColor = true;
             this.keyH1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.key_MouseClick);
@@ -582,6 +596,7 @@ namespace piano
             this.keyA1.Name = "keyA1";
             this.keyA1.Size = new System.Drawing.Size(85, 90);
             this.keyA1.TabIndex = 8;
+            this.keyA1.TabStop = false;
             this.keyA1.Text = "K";
             this.keyA1.UseVisualStyleBackColor = true;
             this.keyA1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.key_MouseClick);
@@ -595,6 +610,7 @@ namespace piano
             this.keyG1.Name = "keyG1";
             this.keyG1.Size = new System.Drawing.Size(85, 90);
             this.keyG1.TabIndex = 7;
+            this.keyG1.TabStop = false;
             this.keyG1.Text = "J";
             this.keyG1.UseVisualStyleBackColor = true;
             this.keyG1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.key_MouseClick);
@@ -608,6 +624,7 @@ namespace piano
             this.keyF1.Name = "keyF1";
             this.keyF1.Size = new System.Drawing.Size(85, 90);
             this.keyF1.TabIndex = 6;
+            this.keyF1.TabStop = false;
             this.keyF1.Text = "H";
             this.keyF1.UseVisualStyleBackColor = true;
             this.keyF1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.key_MouseClick);
@@ -621,6 +638,7 @@ namespace piano
             this.keyE1.Name = "keyE1";
             this.keyE1.Size = new System.Drawing.Size(85, 90);
             this.keyE1.TabIndex = 5;
+            this.keyE1.TabStop = false;
             this.keyE1.Text = "G";
             this.keyE1.UseVisualStyleBackColor = true;
             this.keyE1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.key_MouseClick);
@@ -634,6 +652,7 @@ namespace piano
             this.keyD1.Name = "keyD1";
             this.keyD1.Size = new System.Drawing.Size(85, 90);
             this.keyD1.TabIndex = 4;
+            this.keyD1.TabStop = false;
             this.keyD1.Text = "F";
             this.keyD1.UseVisualStyleBackColor = true;
             this.keyD1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.key_MouseClick);
@@ -647,6 +666,7 @@ namespace piano
             this.keyC1.Name = "keyC1";
             this.keyC1.Size = new System.Drawing.Size(85, 90);
             this.keyC1.TabIndex = 3;
+            this.keyC1.TabStop = false;
             this.keyC1.Text = "D";
             this.keyC1.UseVisualStyleBackColor = true;
             this.keyC1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.key_MouseClick);
@@ -660,6 +680,7 @@ namespace piano
             this.keyH.Name = "keyH";
             this.keyH.Size = new System.Drawing.Size(85, 90);
             this.keyH.TabIndex = 2;
+            this.keyH.TabStop = false;
             this.keyH.Text = "S";
             this.keyH.UseVisualStyleBackColor = true;
             this.keyH.MouseClick += new System.Windows.Forms.MouseEventHandler(this.key_MouseClick);
@@ -690,7 +711,7 @@ namespace piano
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightCyan;
+            this.BackColor = System.Drawing.Color.Azure;
             this.ClientSize = new System.Drawing.Size(1403, 690);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.panel1);

@@ -26,6 +26,9 @@ namespace piano
 
         protected Enumeration(string s, double wt, double bt, double ms, double rs, int ln)
             => (songName, whiteTilesHeight, blackTilesHeight, minSpaceBetweenTiles, renderStep, levelNumber) = (s, wt, bt, ms, rs, ln);
+
+        protected Enumeration(string s, double wt, double bt, double ms, double rs)
+            => (songName, whiteTilesHeight, blackTilesHeight, minSpaceBetweenTiles, renderStep) = (s, wt, bt, ms, rs);
     }
     /// <summary> 
     /// Klasa koja predstavlja enumeraciju sa informacijama o svim levelima igre.
@@ -40,7 +43,7 @@ namespace piano
         public static Level FIVE = new Level("twinkle", 80, 60, 40, 5, 5); //TODO
 
         public Level(string song, double whiteWidth, double blackWidth, double space, double step, int number)
-            : base(song, whiteWidth, blackWidth, space, step, number)
+                    : base(song, whiteWidth, blackWidth, space, step, number)
         {
         }
         public static Level getLevel(int i)

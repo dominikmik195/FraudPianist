@@ -60,6 +60,7 @@ namespace piano
             get { return y; }
             set { y = value; }
         }
+
         /// <summary>
         /// Svojstvo height.
         /// </summary>

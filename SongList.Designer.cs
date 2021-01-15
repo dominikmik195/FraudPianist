@@ -29,123 +29,150 @@ namespace piano
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonSong1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.buttonSong2 = new System.Windows.Forms.Button();
-            this.buttonSong3 = new System.Windows.Forms.Button();
-            this.buttonMenu = new System.Windows.Forms.Button();
+            this.buttonLevel1 = new System.Windows.Forms.Button();
+            this.buttonLevel2 = new System.Windows.Forms.Button();
+            this.buttonLevel3 = new System.Windows.Forms.Button();
+            this.buttonLevel5 = new System.Windows.Forms.Button();
+            this.buttonLevel4 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // buttonSong1
+            // buttonLevel1
             // 
-            this.buttonSong1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.buttonLevel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSong1.BackColor = System.Drawing.Color.Snow;
-            this.buttonSong1.FlatAppearance.BorderColor = System.Drawing.Color.Maroon;
-            this.buttonSong1.FlatAppearance.BorderSize = 5;
-            this.buttonSong1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.IndianRed;
-            this.buttonSong1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MistyRose;
-            this.buttonSong1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSong1.Font = new System.Drawing.Font("Lucida Handwriting", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSong1.Location = new System.Drawing.Point(50, 95);
-            this.buttonSong1.Name = "buttonSong1";
-            this.buttonSong1.Size = new System.Drawing.Size(500, 49);
-            this.buttonSong1.TabIndex = 6;
-            this.buttonSong1.Text = "Song 1";
-            this.buttonSong1.UseVisualStyleBackColor = false;
-            this.buttonSong1.Click += new System.EventHandler(this.buttonSong1_Click);
+            this.buttonLevel1.BackColor = System.Drawing.Color.DarkOrchid;
+            this.buttonLevel1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.buttonLevel1.FlatAppearance.BorderSize = 0;
+            this.buttonLevel1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DimGray;
+            this.buttonLevel1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
+            this.buttonLevel1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonLevel1.Font = new System.Drawing.Font("Lucida Handwriting", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLevel1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonLevel1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonLevel1.Location = new System.Drawing.Point(31, 99);
+            this.buttonLevel1.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonLevel1.Name = "buttonLevel1";
+            this.buttonLevel1.Size = new System.Drawing.Size(188, 61);
+            this.buttonLevel1.TabIndex = 6;
+            this.buttonLevel1.Text = "Level 1";
+            this.buttonLevel1.UseVisualStyleBackColor = false;
+            this.buttonLevel1.Click += new System.EventHandler(this.buttonLevel1_Click);
             // 
-            // label1
+            // buttonLevel2
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.buttonLevel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.Font = new System.Drawing.Font("Lucida Handwriting", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(0, 6);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(600, 76);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Choose a song:";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.buttonLevel2.BackColor = System.Drawing.Color.DarkOrchid;
+            this.buttonLevel2.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.buttonLevel2.FlatAppearance.BorderSize = 0;
+            this.buttonLevel2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DimGray;
+            this.buttonLevel2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
+            this.buttonLevel2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonLevel2.Font = new System.Drawing.Font("Lucida Handwriting", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLevel2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.buttonLevel2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonLevel2.Location = new System.Drawing.Point(31, 169);
+            this.buttonLevel2.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonLevel2.Name = "buttonLevel2";
+            this.buttonLevel2.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.buttonLevel2.Size = new System.Drawing.Size(247, 61);
+            this.buttonLevel2.TabIndex = 7;
+            this.buttonLevel2.Text = "Level 2";
+            this.buttonLevel2.UseVisualStyleBackColor = false;
+            this.buttonLevel2.Click += new System.EventHandler(this.buttonLevel2_Click);
             // 
-            // buttonSong2
+            // buttonLevel3
             // 
-            this.buttonSong2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.buttonLevel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSong2.BackColor = System.Drawing.Color.Snow;
-            this.buttonSong2.FlatAppearance.BorderColor = System.Drawing.Color.Maroon;
-            this.buttonSong2.FlatAppearance.BorderSize = 5;
-            this.buttonSong2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.IndianRed;
-            this.buttonSong2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MistyRose;
-            this.buttonSong2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSong2.Font = new System.Drawing.Font("Lucida Handwriting", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSong2.Location = new System.Drawing.Point(50, 164);
-            this.buttonSong2.Name = "buttonSong2";
-            this.buttonSong2.Size = new System.Drawing.Size(500, 49);
-            this.buttonSong2.TabIndex = 7;
-            this.buttonSong2.Text = "Song 2";
-            this.buttonSong2.UseVisualStyleBackColor = false;
-            this.buttonSong2.Click += new System.EventHandler(this.buttonSong2_Click);
+            this.buttonLevel3.BackColor = System.Drawing.Color.DarkOrchid;
+            this.buttonLevel3.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.buttonLevel3.FlatAppearance.BorderSize = 0;
+            this.buttonLevel3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DimGray;
+            this.buttonLevel3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
+            this.buttonLevel3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonLevel3.Font = new System.Drawing.Font("Lucida Handwriting", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLevel3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonLevel3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonLevel3.Location = new System.Drawing.Point(31, 239);
+            this.buttonLevel3.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonLevel3.Name = "buttonLevel3";
+            this.buttonLevel3.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.buttonLevel3.Size = new System.Drawing.Size(302, 61);
+            this.buttonLevel3.TabIndex = 8;
+            this.buttonLevel3.Text = "Level 3";
+            this.buttonLevel3.UseVisualStyleBackColor = false;
+            this.buttonLevel3.Click += new System.EventHandler(this.buttonLevel3_Click);
             // 
-            // buttonSong3
+            // buttonLevel5
             // 
-            this.buttonSong3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.buttonLevel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSong3.BackColor = System.Drawing.Color.Snow;
-            this.buttonSong3.FlatAppearance.BorderColor = System.Drawing.Color.Maroon;
-            this.buttonSong3.FlatAppearance.BorderSize = 5;
-            this.buttonSong3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.IndianRed;
-            this.buttonSong3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MistyRose;
-            this.buttonSong3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSong3.Font = new System.Drawing.Font("Lucida Handwriting", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSong3.Location = new System.Drawing.Point(50, 228);
-            this.buttonSong3.Name = "buttonSong3";
-            this.buttonSong3.Size = new System.Drawing.Size(500, 49);
-            this.buttonSong3.TabIndex = 8;
-            this.buttonSong3.Text = "Song 3";
-            this.buttonSong3.UseVisualStyleBackColor = false;
-            this.buttonSong3.Click += new System.EventHandler(this.buttonSong3_Click);
+            this.buttonLevel5.BackColor = System.Drawing.Color.DarkOrchid;
+            this.buttonLevel5.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.buttonLevel5.FlatAppearance.BorderSize = 0;
+            this.buttonLevel5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DimGray;
+            this.buttonLevel5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
+            this.buttonLevel5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonLevel5.Font = new System.Drawing.Font("Lucida Handwriting", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLevel5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.buttonLevel5.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonLevel5.Location = new System.Drawing.Point(31, 379);
+            this.buttonLevel5.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonLevel5.Name = "buttonLevel5";
+            this.buttonLevel5.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.buttonLevel5.Size = new System.Drawing.Size(439, 61);
+            this.buttonLevel5.TabIndex = 9;
+            this.buttonLevel5.Text = "Level 5";
+            this.buttonLevel5.UseVisualStyleBackColor = false;
+            this.buttonLevel5.Click += new System.EventHandler(this.buttonLevel5_Click);
             // 
-            // buttonMenu
+            // buttonLevel4
             // 
-            this.buttonMenu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.buttonLevel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonMenu.BackColor = System.Drawing.Color.Snow;
-            this.buttonMenu.FlatAppearance.BorderColor = System.Drawing.Color.Maroon;
-            this.buttonMenu.FlatAppearance.BorderSize = 5;
-            this.buttonMenu.FlatAppearance.MouseDownBackColor = System.Drawing.Color.IndianRed;
-            this.buttonMenu.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MistyRose;
-            this.buttonMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonMenu.Font = new System.Drawing.Font("Lucida Handwriting", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonMenu.Location = new System.Drawing.Point(50, 325);
-            this.buttonMenu.Name = "buttonMenu";
-            this.buttonMenu.Size = new System.Drawing.Size(500, 49);
-            this.buttonMenu.TabIndex = 9;
-            this.buttonMenu.Text = "Main menu";
-            this.buttonMenu.UseVisualStyleBackColor = false;
-            this.buttonMenu.Click += new System.EventHandler(this.buttonMenu_Click);
+            this.buttonLevel4.BackColor = System.Drawing.Color.DarkOrchid;
+            this.buttonLevel4.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.buttonLevel4.FlatAppearance.BorderSize = 0;
+            this.buttonLevel4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DimGray;
+            this.buttonLevel4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
+            this.buttonLevel4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonLevel4.Font = new System.Drawing.Font("Lucida Handwriting", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLevel4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.buttonLevel4.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonLevel4.Location = new System.Drawing.Point(31, 309);
+            this.buttonLevel4.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonLevel4.Name = "buttonLevel4";
+            this.buttonLevel4.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.buttonLevel4.Size = new System.Drawing.Size(371, 61);
+            this.buttonLevel4.TabIndex = 10;
+            this.buttonLevel4.Text = "Level 4";
+            this.buttonLevel4.UseVisualStyleBackColor = false;
+            this.buttonLevel4.Click += new System.EventHandler(this.buttonLevel4_Click);
             // 
             // SongList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.SeaShell;
-            this.Controls.Add(this.buttonMenu);
-            this.Controls.Add(this.buttonSong3);
-            this.Controls.Add(this.buttonSong2);
-            this.Controls.Add(this.buttonSong1);
-            this.Controls.Add(this.label1);
+            this.BackColor = System.Drawing.Color.Transparent;
+            this.Controls.Add(this.buttonLevel5);
+            this.Controls.Add(this.buttonLevel4);
+            this.Controls.Add(this.buttonLevel3);
+            this.Controls.Add(this.buttonLevel2);
+            this.Controls.Add(this.buttonLevel1);
+            this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "SongList";
-            this.Size = new System.Drawing.Size(600, 430);
+            this.Size = new System.Drawing.Size(623, 474);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button buttonSong1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button buttonSong2;
-        private System.Windows.Forms.Button buttonSong3;
-        private System.Windows.Forms.Button buttonMenu;
+        private System.Windows.Forms.Button buttonLevel1;
+        private System.Windows.Forms.Button buttonLevel2;
+        private System.Windows.Forms.Button buttonLevel3;
+        private System.Windows.Forms.Button buttonLevel5;
+        private System.Windows.Forms.Button buttonLevel4;
     }
 }

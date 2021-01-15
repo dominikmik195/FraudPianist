@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,16 +18,17 @@ namespace piano
     public partial class SongList : UserControl
     {
         /// <summary>
-        /// Konstruktor.
+        /// Konstruktor klase.
         /// </summary>
         public SongList()
         {
             InitializeComponent();
-            // Postavimo tipke za sve levele osim prvog na neomogućeno
-            buttonSong2.Enabled = false;
-            buttonSong3.Enabled = false;
+            buttonLevel2.Enabled = false;
+            buttonLevel3.Enabled = false;
+            buttonLevel4.Enabled = false;
+            buttonLevel5.Enabled = false;
         }
-        public event EventHandler Song1, Song2, Song3, Menu;
+        public event EventHandler Level1, Level2, Level3, Level4, Level5;
 
         /// <summary>
         /// Postavlja odgovarajući naslov pjesme na odgovarajuću tipku.
@@ -35,18 +38,19 @@ namespace piano
             switch (i)
             {
                 case 1:
-                    buttonSong1.Text = title;
+                    buttonLevel1.Text = title;
                     break;
                 case 2:
-                    buttonSong2.Text = title;
+                    buttonLevel2.Text = title;
                     break;
                 case 3:
-                    buttonSong3.Text = title;
+                    buttonLevel3.Text = title;
                     break;
                 case 4:
-                    buttonSong3.Text = title;
+                    buttonLevel4.Text = title;
                     break;
-                default: buttonSong1.Text = title;
+                default:
+                    buttonLevel5.Text = title;
                     break;
             }
         }
@@ -59,41 +63,47 @@ namespace piano
             switch (i)
             {
                 case 1:
-                    buttonSong1.Enabled = true;
+                    buttonLevel1.Enabled = true;
                     break;
                 case 2:
-                    buttonSong2.Enabled = true;
+                    buttonLevel2.Enabled = true;
                     break;
                 case 3:
-                    buttonSong3.Enabled = true;
+                    buttonLevel3.Enabled = true;
                     break;
                 case 4:
-                    buttonSong3.Enabled = true;
+                    buttonLevel4.Enabled = true;
                     break;
                 default:
-                    buttonSong1.Enabled = true;
+                    buttonLevel5.Enabled = true;
                     break;
             }
         }
         // Nadalje funkcije koje reagiraju na klikove tipki:
-        private void buttonMenu_Click(object sender, EventArgs e)
+        private void buttonLevel1_Click(object sender, EventArgs e)
         {
-            if (Menu != null) Menu(sender, e);
+            if (Level1 != null) Level1(sender, e);
         }
 
-        private void buttonSong3_Click(object sender, EventArgs e)
+        private void buttonLevel2_Click(object sender, EventArgs e)
         {
-            if (Song3 != null) Song3(sender, e);
+            if (Level2 != null) Level2(sender, e);
         }
 
-        private void buttonSong2_Click(object sender, EventArgs e)
+        private void buttonLevel3_Click(object sender, EventArgs e)
         {
-            if (Song2 != null) Song2(sender, e);
+            if (Level3 != null) Level3(sender, e);
         }
 
-        private void buttonSong1_Click(object sender, EventArgs e)
+        private void buttonLevel4_Click(object sender, EventArgs e)
         {
-            if (Song1 != null) Song1(sender, e);
+            if (Level4 != null) Level4(sender, e);
         }
+
+        private void buttonLevel5_Click(object sender, EventArgs e)
+        {
+            if (Level5 != null) Level5(sender, e);
+        }
+
     }
 }

@@ -15,18 +15,22 @@ namespace piano
     public partial class FormGame : Form
     {
         private Game game;
+        private PictureBox pictureBoxNote;
 
         /*
-         * Kako bismo izbjegli otvaranje mnogo novih formi, definirali smo pomoćne UserControls.
-         * Jedna od njih je MainMenu koja se prikazuje pri samom početku igre.
-         * Klikom na tipku 'New game' prikazat će se kontrola SongList koja nudi moguće igre.
-         * Istovremeno, sakrije se kontrola MainMenu.
-         * Tako odabirom pjesme skrivamo SongList ali prikazujemo klavijaturu i pločice.
-         * Klikom na 'Main menu' skrivamo sve funkcionalnosti ali prikazujemo Mainmenu kontrolu.
-         */
+        * Kako bismo izbjegli otvaranje mnogo novih formi, definirali smo pomoćne UserControls.
+        * Jedna od njih je MainMenu koja se prikazuje pri samom početku igre.
+        * Klikom na tipku 'New game' prikazat će se kontrola SongList koja nudi moguće igre.
+        * Istovremeno, sakrije se kontrola MainMenu.
+        * Tako odabirom pjesme skrivamo SongList ali prikazujemo klavijaturu i pločice.
+        * Klikom na 'Main menu' skrivamo sve funkcionalnosti ali prikazujemo Mainmenu kontrolu.
+        */
         private MainMenu newMenu = new MainMenu();
         private SongList chooseSongs = new SongList();
         private KeySelection selectKeys = new KeySelection();
+
+        private Image back = ((System.Drawing.Image)(Properties.Resources.ResourceManager.GetObject("background")));
+
 
         /// https://docs.microsoft.com/en-us/dotnet/api/system.windows.forms.keys?view=net-5.0
         /// <summary>
@@ -63,113 +67,42 @@ namespace piano
         public FormGame()
         {
             InitializeComponent();
+
             pressedKey = "";
 
-            // Ovdje inicijaliziramo početni ekran - glavni izbornik:
-            panel1.Visible = false;
-            Width = 600;
-            Height = 450;
-            newMenu.Location = new System.Drawing.Point(0, 0);
-            newMenu.Dock = DockStyle.Fill;
             Controls.Add(newMenu);
-
-            // Inicijaliziramo izbornik za odabir pjesme:
-            chooseSongs.Location = new System.Drawing.Point(0, 0);
-            chooseSongs.Dock = DockStyle.Fill;
-            chooseSongs.Visible = false;
-            // Postavljamo tekstove na tipkama izbornika:
-            chooseSongs.set_title("1. Twinkle, Twinkle Little Star", 1);
-            chooseSongs.set_title("2. Swan Lake", 2);
-            chooseSongs.set_title("3. Twinkle, Twinkle Little Star", 3);
             Controls.Add(chooseSongs);
 
-            Controls["tilesBox"].Visible = false;
+            clearFormGameFor(2430, 785);
+            mainMenuShow();
 
-            // Dodajemo pretplatnike na događaje:
-            chooseSongs.Song1 += (sender, e) =>
+            chooseSongs.Level1 += (sender, e) =>
             {
-                // Standardna veličina ekrana za sviranje:
-                Width = 1350;
-                Height = 710;
-                game = new Game(1); // pjesma 1
-
-                // nadalje postavljamo na 'vidljivo' samo one stvari
-                // koje doista želimo vidjeti na ekranu:
-                Controls["tilesBox"].Visible = true;
-                panel1.Visible = true;
-                labelBodovi.Text = "0";
-                labelPoruka.Text = "";
-                labelResult.Visible = false;
-                labelPercent.Visible = false;
-                labelPass.Visible = false;
-                labelLvlMsg.Visible = false;
-                chooseSongs.Visible = false;
-                piano.Visible = true;
-                buttonMenu.Visible = true;
-                // omogućavamo rad tipkovnicom
-                KeyPreview = true;
-                KeyDown += new KeyEventHandler(piano_KeyDown);
-                // pokrećemo timere
-                timer1.Start();
-                timer2.Start();
+                playGame(1);
             };
-            chooseSongs.Song2 += (sender, e) =>
+            chooseSongs.Level2 += (sender, e) =>
             {
-                Width = 1350;
-                Height = 710;
-                game = new Game(2);
-                Controls["tilesBox"].Visible = true;
-                panel1.Visible = true;
-                labelBodovi.Text = "0";
-                labelPoruka.Text = "";
-                labelResult.Visible = false;
-                labelPercent.Visible = false;
-                labelPass.Visible = false;
-                labelLvlMsg.Visible = false;
-                chooseSongs.Visible = false;
-                piano.Visible = true;
-                buttonMenu.Visible = true;
-                KeyPreview = true;
-                KeyDown += new KeyEventHandler(piano_KeyDown);
-                timer1.Start();
-                timer2.Start();
+                playGame(2);
             };
-            chooseSongs.Song3 += (sender, e) =>
+            chooseSongs.Level3 += (sender, e) =>
             {
-                Width = 1350;
-                Height = 710;
-                game = new Game(3);
-                Controls["tilesBox"].Visible = true;
-                panel1.Visible = true;
-                labelBodovi.Text = "0";
-                labelPoruka.Text = "";
-                labelResult.Visible = false;
-                labelPercent.Visible = false;
-                labelPass.Visible = false;
-                labelLvlMsg.Visible = false;
-                chooseSongs.Visible = false;
-                piano.Visible = true;
-                buttonMenu.Visible = true;
-                KeyPreview = true;
-                KeyDown += new KeyEventHandler(piano_KeyDown);
-                timer1.Start();
-                timer2.Start();
+                playGame(3);
             };
-            chooseSongs.Menu += (sender, e) =>
+            chooseSongs.Level4 += (sender, e) =>
             {
-                // povratak na meni
-                Width = 600;
-                Height = 450;
-                chooseSongs.Visible = false;
-                newMenu.Visible = true;
-                panel1.Visible = false;
+                playGame(4);
             };
-
-            // pretplatnici na događaje (vezane uz glavni izbornik):
+            chooseSongs.Level5 += (sender, e) =>
+            {
+                playGame(5);
+            };
             newMenu.NewGame += (sender, e) =>
             {
-                newMenu.Visible = false;
-                chooseSongs.Visible = true;
+                levelMenuShow();
+            };
+            newMenu.Practice += (sender, e) =>
+            {
+                practicePianoShow();
             };
             newMenu.Quit += (sender, e) =>
             {
@@ -179,6 +112,8 @@ namespace piano
             {
                 selectKeys.ShowDialog(this);
             };
+
+            this.MinimumSize = new System.Drawing.Size(piano.Width, piano.Height+50);
         }
 
         #region Properties
@@ -198,45 +133,46 @@ namespace piano
         /// </summary>
         private void buttonMenu_Click(object sender, EventArgs e)
         {
-            // vraćamo se na meni i skrivamo ono što nam ne treba
-            Width = 600;
-            Height = 450;
-            KeyDown -= new KeyEventHandler(piano_KeyDown);
-            piano.Visible = false;
-            buttonMenu.Visible = false;
-            Controls["tilesBox"].Visible = false;
-            KeyPreview = false;
-            newMenu.Visible = true;
-            panel1.Visible = false;
+            KeyDown -= new KeyEventHandler(FormGame_KeyDown);
+            mainMenuShow();
         }
 
-        private void piano_KeyDown(object sender, KeyEventArgs e)
-        { 
+        private void FormGame_KeyDown(object sender, KeyEventArgs e)
+        {
             string name = (new KeysConverter()).ConvertToString(e.KeyCode);
 
-            if (pressedKey != "" )
+            if (pressedKey != "")
             {
                 return;
             }
             else
-            {              
+            {
                 piano.play(name, gameKeys);
                 pressedKey = name;
 
-                string s = e.KeyCode.ToString();
-                // provjeri je li igrač odsvirao točnu notu
-                string note = gameKeys.FirstOrDefault(x => x.Value == e.KeyCode.ToString()).Key;
-                if (note != null && game.lowestTile != null && note.Equals(game.lowestTile.id))
+                if (Controls["tilesBox"].Visible == true)
                 {
-                    // ako tipka još nije došla na ekran, zapravo ona još ne postoji
-                    // stoga je ne prihvaćamo kao točnu:
-                    if (game.lowestTile.Y + game.lowestTile.Height < 0) game.wrong();
-                    else game.hit(tilesBox.Height);
-                    renderHit(Controls["piano"].Controls["btn" + note] as Button);
+                    string s = e.KeyCode.ToString();
+                    // provjeri je li igrač odsvirao točnu notu
+                    string note = gameKeys.FirstOrDefault(x => x.Value == e.KeyCode.ToString()).Key;
+                    if (note != null && game.lowestTile != null && note.Equals(game.lowestTile.id))
+                    {
+                        // ako tipka još nije došla na ekran, zapravo ona još ne postoji
+                        // stoga je ne prihvaćamo kao točnu:
+                        if (game.lowestTile.Y + game.lowestTile.Height < 0)
+                        {
+                            game.wrong();
+                        }
+                        else
+                        {
+                            game.hit(tilesBox.Height);
+                        }
+                        renderHit(Controls["piano"].Controls["btn" + note] as Button);
+                    }
+                    else game.wrong();
+                    // updateamo bodove
+                    labelBodovi.Text = game.Score.ToString();
                 }
-                else game.wrong();
-                // updateamo bodove
-                labelBodovi.Text = game.score.ToString();
             }
         }
 
@@ -245,42 +181,43 @@ namespace piano
             string name = (new KeysConverter()).ConvertToString(e.KeyCode);
 
             piano.keySilence(name, gameKeys);
-            
-            if(string.Equals(pressedKey, name, StringComparison.CurrentCultureIgnoreCase))
+
+            if (string.Equals(pressedKey, name, StringComparison.CurrentCultureIgnoreCase))
             {
                 pressedKey = "";
             }
 
             this.Focus();
-           // Application.OpenForms["FormGame"].Controls["piano"].Focus();
+            // Application.OpenForms["FormGame"].Controls["piano"].Focus();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             game.update();
             game.render(this.Controls["tilesBox"] as PictureBox);
+
             // konstantno provjeravamo vrijedi li naš combo:
-            if (game.combo >= 10) 
+            if (game.Combo >= 10)
             {
                 // ukoliko je u combo u tijeku, to naznačimo igraču:
-                int faktor = game.combo / 10 + 1;
+                int faktor = game.Combo / 10 + 1;
                 if (faktor > 5) faktor = 5;
                 labelPoruka.ForeColor = Color.DarkGreen;
                 labelPoruka.Text = "COMBO " + faktor + "X";
-                game.combo_made = true;
+                game.Combo_made = true;
             }
-            else if (game.combo_made)
+            else if (game.Combo_made)
             {
                 // ako combo više nije u tijeku, ali je combo_made postavljen na true
                 // to znači da smo imali combo ali je prekinut, pa treba postaviti poruku:
-                game.combo_made = false;
+                game.Combo_made = false;
                 labelPoruka.ForeColor = Color.DarkRed;
                 labelPoruka.Text = "COMBO BROKEN";
             }
             if (game.isOver())
             {
                 // ako je igra gotova, računamo rezultat:
-                double percentage = Math.Round((double)game.score / game.score_possible * 100, 2);
+                double percentage = Math.Round((double)game.Score / game.Score_possible * 100, 2);
                 labelPoruka.Text = "";
                 labelResult.Visible = true;
                 labelPercent.Visible = true;
@@ -313,14 +250,14 @@ namespace piano
                     labelPass.ForeColor = Color.DarkRed;
                     labelPass.Text = "You failed!";
                 }
-                KeyDown -= new KeyEventHandler(piano_KeyDown);
+                KeyDown -= new KeyEventHandler(FormGame_KeyDown);
 
                 // ukoliko je level prijeđen, otključavamo sljedeći:
                 if (percentage >= 30)
                 {
                     switch (game.Level.levelNumber)
                     {
-                        case 1: 
+                        case 1:
                             chooseSongs.enable(2);
                             labelLvlMsg.Visible = true;
                             labelLvlMsg.Text = "Level 2 is now unlocked!";
@@ -330,21 +267,226 @@ namespace piano
                             labelLvlMsg.Visible = true;
                             labelLvlMsg.Text = "Level 3 is now unlocked!";
                             break;
-                        default: chooseSongs.enable(1);
+                        default:
+                            chooseSongs.enable(1);
                             labelLvlMsg.Visible = true;
                             labelLvlMsg.Text = "Level 2 is now unlocked!";
                             break;
                     }
                 }
             }
-
         }
 
         private void timer2_Tick(object sender, EventArgs e)
         {
             game.parseOneNote();
         }
+
+        private void FormGame_SizeChanged(object sender, EventArgs e)
+        {
+            // leveli
+            if (chooseSongs.Visible == true)
+            {
+                //this.MinimumSize = new System.Drawing.Size(chooseSongs.Width + 100, chooseSongs.Height + 50);
+                //if (Size.Width < MinimumSize.Width)
+                //    Width = MinimumSize.Width;
+                //if (Size.Height < MinimumSize.Height)
+                //    Height = MinimumSize.Height;
+
+                chooseSongs.Size = new System.Drawing.Size(Width / 2, chooseSongs.Height);
+                chooseSongs.Location = new System.Drawing.Point(this.Width / 2 - chooseSongs.Width / 2, 0);
+                chooseSongs.Anchor = (AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right);
+            }
+
+            // main menu
+            if (newMenu.Visible == true)
+            {
+                //this.MinimumSize = new System.Drawing.Size(newMenu.Width + 100, newMenu.Height + 200);
+                //if (Size.Width < MinimumSize.Width)
+                //    Width = MinimumSize.Width;
+                //if (Size.Height < MinimumSize.Height)
+                //    Height = MinimumSize.Height;
+
+                newMenu.Size = new System.Drawing.Size(Width / 2, newMenu.Height);
+                newMenu.Location = new System.Drawing.Point(this.Width / 2 - newMenu.Width / 2, 0);
+                newMenu.Anchor = (AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right);
+            }
+
+            // igra
+            if (piano.Visible == true && tilesBox.Visible == true)
+            {
+                //namjestit do crte visinu obaveznooo!!!!!
+                this.MinimumSize = new System.Drawing.Size(piano.Width, piano.Height + 50);
+                piano.Location = new System.Drawing.Point(0, Height - piano.Height - 35);
+            }
+            //practice                
+            else if (piano.Visible == true)
+            {
+                piano.Location = new System.Drawing.Point(this.Width / 2 - piano.Width / 2, this.Height - piano.Height - 38);
+                pictureBoxNote.Size = new System.Drawing.Size(piano.Width, this.Height - piano.Height);
+            }
+        }
+
         #endregion
+
+        #region Private
+        /// <summary>
+        /// Funkcija čisti formu te potom iscrtava i pozicionira sve elemente potrebne za igru i pokreće novu igru određene razine.
+        /// </summary>
+        /// <param name="level">Razina igre.</param>
+        private void playGame(int level)
+        {
+            clearFormGameFor();
+            this.BackColor = System.Drawing.SystemColors.ScrollBar;
+
+            game = new Game(level);
+
+            tilesBox.Visible = true;
+            tilesBox.Enabled = true;
+            tilesBox.Size = new System.Drawing.Size(Width - panelScore.Width + 68, Height - piano.Height - 40);
+
+            piano.Location = new System.Drawing.Point(0, Height - piano.Height - 35);
+            piano.Visible = true;
+            piano.Enabled = true;
+
+            panelScore.Visible = true;
+            panelScore.Enabled = true;
+
+            panelScore.Controls.Add(buttonMenu);
+            buttonMenu.Anchor = (AnchorStyles.Top | AnchorStyles.Right);
+            buttonMenu.Location = new System.Drawing.Point(panelScore.Width - buttonMenu.Width - 15, 5);
+            buttonMenu.Visible = true;
+            buttonMenu.Enabled = true;
+            
+            labelBodovi.Text = "0";
+            labelPoruka.Text = "";
+            labelResult.Visible = false;
+            labelPercent.Visible = false;
+            labelPass.Visible = false;
+            labelLvlMsg.Visible = false;
+
+            KeyPreview = true;
+            KeyDown += new KeyEventHandler(FormGame_KeyDown);       
+
+            timer1.Start();
+            timer2.Start();
+        }
+
+        /// <summary>
+        /// Funkcija čisti formu te iscrtava i pozicionira elemente za odabir levela na ekranu.
+        /// </summary>
+        private void levelMenuShow()
+        {
+            clearFormGameFor(chooseSongs.Width, chooseSongs.Height);
+
+            chooseSongs.Size = new System.Drawing.Size(Width / 2, chooseSongs.Height);
+            chooseSongs.Location = new System.Drawing.Point(this.Width / 2 - chooseSongs.Width / 2, 0);
+            chooseSongs.Anchor = (AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right);
+
+            chooseSongs.Visible = true;
+            chooseSongs.Enabled = true;
+
+            this.Controls.Add(buttonMenu);
+            buttonMenu.Anchor = (AnchorStyles.Top | AnchorStyles.Right);
+            buttonMenu.Location = new System.Drawing.Point(this.Width - buttonMenu.Width - 30, 5);
+            buttonMenu.Visible = true;
+            buttonMenu.Enabled = true;
+
+            BackgroundImage = back;
+
+        }
+
+        /// <summary>
+        /// Funkcija čisti formu te iscrtava i pozicionira elemente glavnog izbornika.
+        /// </summary>
+        private void mainMenuShow()
+        {
+            clearFormGameFor(newMenu.Width + 100, newMenu.Height + 300);
+            //this.MinimumSize = new System.Drawing.Size(newMenu.Width + 100, newMenu.Height + 300);
+            if (Size.Width < MinimumSize.Width)
+                Width = MinimumSize.Width;
+            if (Size.Height < MinimumSize.Height)
+                Height = MinimumSize.Height;
+
+            newMenu.Size = new System.Drawing.Size(Width / 2, newMenu.Height);
+            newMenu.Location = new System.Drawing.Point(this.Width / 2 - newMenu.Width / 2, 0);
+            newMenu.Anchor = (AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right);
+
+            BackgroundImage = back;
+
+            newMenu.Visible = true;
+            newMenu.Enabled = true;
+        }
+
+        /// <summary>
+        /// Funkcija čisti formu te iscrtava i pozicionira elemente na Practice ekranu.
+        /// </summary>
+        private void practicePianoShow()
+        {
+            clearFormGameFor();
+
+            //this.Width = piano.Width + 15;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+
+            KeyPreview = true;
+            KeyDown += new KeyEventHandler(FormGame_KeyDown);
+
+            piano.Location = new System.Drawing.Point(this.Width / 2 - piano.Width  /2, this.Height - piano.Height-38);
+            piano.Visible = true;
+            piano.Enabled = true;
+
+            pictureBoxNote = new PictureBox()
+            {
+                Name = "pictureBoxNote",
+                SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage,
+                Location = new System.Drawing.Point(0, 41),
+                Padding = new Padding(0, 100, 0, 0),
+                Image = ((System.Drawing.Image)(Properties.Resources.ResourceManager.GetObject("piano"))),
+                TabStop = true,
+                Dock = System.Windows.Forms.DockStyle.Top,
+                BackColor = System.Drawing.Color.Azure
+            };
+            pictureBoxNote.Size = new System.Drawing.Size(piano.Width, this.Height - piano.Height);
+            this.Controls.Add(pictureBoxNote);
+
+            pictureBoxNote.Controls.Add(buttonMenu);
+            buttonMenu.Location = new System.Drawing.Point(this.Width - buttonMenu.Width - 30, 5);
+            buttonMenu.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            buttonMenu.Enabled = true;
+            buttonMenu.Visible = true;           
+
+            //pictureBoxNote.TabStop = false;
+            //buttonMenu.TabStop = false;
+        }
+
+        /// <summary>
+        /// Funkcija čisti FormGame formu u kojoj se inicijalno odvija igra te je priprema za sljedeći prikaz.
+        /// </summary>
+        /// <param name="width">Minimalna širina ekrana za prikaz.</param>
+        /// <param name="height">Minimalna visina ekrana za prikaz.</param>
+        private void clearFormGameFor(int width = 500, int height = 500)
+        {            
+            foreach (Control c in Controls)
+            {
+                c.Visible = false;
+                c.Enabled = false;
+            }
+            KeyPreview = false;
+
+            // po defaultu se veličina ektana može mijenjati
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
+            this.BackColor = System.Drawing.Color.Azure;
+            BackgroundImage = null;
+
+            //if (Size.Width < width)
+            //    Width = width;
+            //if (Size.Height < height)
+            //    Height = height;
+
+        }
+
+        #endregion
+
 
         //TODO
         private void renderHit(Button button)
@@ -356,7 +498,7 @@ namespace piano
                 new Point(0, this.Controls["tilesBox"].Height),
                 new Point(0, 0),
                 Color.Orchid,
-                Color.LightCyan
+                Color.Azure
             );
 
             g.FillRectangle(brush, button.Location.X, 0, button.Width, this.Controls["tilesBox"].Height);

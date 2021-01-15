@@ -16,11 +16,6 @@ namespace piano
     {
         private Level level;
 
-        public Level Level
-        {
-            get { return level; }
-        }
-
         // string iz rsc file-a s točnim notama('C1', 'C_1',...) od početka do kraja pjesme
         // razmak(' ') označava pauzu u pjesmi
         private string song;
@@ -34,17 +29,52 @@ namespace piano
         // najniža 'živa' pločica (ona koju treba sljedeću odsvirati)
         public Tile lowestTile;
 
-        // ukupan broj ostvarenih bodova
-        public int score;
-        // broj mogućih bodova (potrebno za izračun 'polaganja' razine)
-        public int score_possible;
-        // ukupan broj točno pritisnutih tipki zaredom
-        public int combo;
-        // broj tipki
-        public int note_no;
-        // varijabla koja pamti je li u tijeku combo
-        public bool combo_made;
 
+        // ukupan broj ostvarenih bodova
+        private int score;
+        // broj mogućih bodova (potrebno za izračun 'polaganja' razine)
+        private int score_possible;
+        // ukupan broj točno pritisnutih tipki zaredom
+        private int combo;
+        // broj tipki
+        private int note_no;
+        // varijabla koja pamti je li u tijeku combo
+        private bool combo_made;
+
+
+        #region Properties
+        public Level Level
+        {
+            get { return level; }
+        }
+
+        public int Score
+        {
+            get { return score; }
+        }
+
+        public int Score_possible
+        {
+            get { return score_possible; }
+        }
+
+        public int Combo
+        {
+            get { return combo; }
+        }
+
+        public int Note_no
+        {
+            get { return note_no; }
+        }
+
+        public bool Combo_made
+        {
+            get { return combo_made; }
+            set { combo_made = value; }
+        }
+
+        #endregion
         /// <summary>
         /// Konstruktor igre.
         /// </summary>
@@ -216,7 +246,6 @@ namespace piano
                 lowestTile = null;
             }
         }
-
         public void wrong()
         {
             score -= 2;
