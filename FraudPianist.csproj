@@ -98,12 +98,6 @@
     <Compile Include="SongList.Designer.cs">
       <DependentUpon>SongList.cs</DependentUpon>
     </Compile>
-    <Compile Include="PracticePiano.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="PracticePiano.Designer.cs">
-      <DependentUpon>PracticePiano.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
@@ -132,9 +126,6 @@
     </Compile>
     <EmbeddedResource Include="SongList.resx">
       <DependentUpon>SongList.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PracticePiano.resx">
-      <DependentUpon>PracticePiano.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
