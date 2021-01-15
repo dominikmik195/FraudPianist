@@ -21,12 +21,11 @@ namespace piano
         public double minSpaceBetweenTiles { get; private set; }
         // "brzina pločica" tj. korak za koliko se u jednom tick-u spuštaju pločice
         public double renderStep { get; private set; }
+        // numerička reprezentacija levela
+        public int levelNumber { get; private set; }
 
-        // možda dodati varijablu koja će označaviti broj bodova 
-        // potrebnih za prijelaz na novi level
-
-        protected Enumeration(string s, double wt, double bt, double ms, double rs)
-            => (songName, whiteTilesHeight, blackTilesHeight, minSpaceBetweenTiles, renderStep) = (s, wt, bt, ms, rs);
+        protected Enumeration(string s, double wt, double bt, double ms, double rs, int ln)
+            => (songName, whiteTilesHeight, blackTilesHeight, minSpaceBetweenTiles, renderStep, levelNumber) = (s, wt, bt, ms, rs, ln);
     }
     /// <summary> 
     /// Klasa koja predstavlja enumeraciju sa informacijama o svim levelima igre.
@@ -34,14 +33,14 @@ namespace piano
     public class Level
         : Enumeration
     {
-        public static Level ONE = new Level("twinkle", 80, 60, 40, 5);
-        public static Level TWO = new Level("twinkle", 80, 60, 40, 5); //TODO
-        public static Level THREE = new Level("twinkle", 80, 60, 40, 5); //TODO
-        public static Level FOUR = new Level("twinkle", 80, 60, 40, 5); //TODO
-        public static Level FIVE = new Level("twinkle", 80, 60, 40, 5); //TODO
+        public static Level ONE = new Level("twinkle", 80, 60, 40, 7, 1);
+        public static Level TWO = new Level("swanlake", 80, 60, 40, 6, 2); //TODO
+        public static Level THREE = new Level("twinkle", 80, 60, 40, 5, 3); //TODO
+        public static Level FOUR = new Level("twinkle", 80, 60, 40, 5, 4); //TODO
+        public static Level FIVE = new Level("twinkle", 80, 60, 40, 5, 5); //TODO
 
-        public Level(string song, double whiteWidth, double blackWidth, double space, double step)
-            : base(song, whiteWidth, blackWidth, space, step)
+        public Level(string song, double whiteWidth, double blackWidth, double space, double step, int number)
+            : base(song, whiteWidth, blackWidth, space, step, number)
         {
         }
         public static Level getLevel(int i)

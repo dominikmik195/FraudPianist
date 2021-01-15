@@ -16,6 +16,11 @@ namespace piano
     {
         private Level level;
 
+        public Level Level
+        {
+            get { return level; }
+        }
+
         // string iz rsc file-a s točnim notama('C1', 'C_1',...) od početka do kraja pjesme
         // razmak(' ') označava pauzu u pjesmi
         private string song;
@@ -29,7 +34,16 @@ namespace piano
         // najniža 'živa' pločica (ona koju treba sljedeću odsvirati)
         public Tile lowestTile;
 
-        //score...
+        // ukupan broj ostvarenih bodova
+        public int score;
+        // broj mogućih bodova (potrebno za izračun 'polaganja' razine)
+        public int score_possible;
+        // ukupan broj točno pritisnutih tipki zaredom
+        public int combo;
+        // broj tipki
+        public int note_no;
+        // varijabla koja pamti je li u tijeku combo
+        public bool combo_made;
 
         /// <summary>
         /// Konstruktor igre.
@@ -45,6 +59,9 @@ namespace piano
             tiles = new List<Tile>();
             lowestTile = null;
             previousTile = null;
+
+            note_no = 0;
+            combo_made = false;
         }
 
         /// <summary>
@@ -106,6 +123,8 @@ namespace piano
             previousTile = newTile;
            
             tiles.Add(newTile);
+            // ako smo došli dovde, znači da je obrađena jedna nota:
+            note_no++;
         }
 
         /// <summary>
@@ -113,9 +132,27 @@ namespace piano
         /// </summary>
         public void update()
         {
-            // ako je igra gotova, ne radi ništa
+            // ako je igra gotova, računa maksimalan mogući broj bodova
             if (isOver())
             {
+                // Najveći mogući broj bodova je onaj koji se ostvari ako su sve note
+                // idealno odsvirane.
+                score_possible = 0;
+                int faktor = 1;
+                int broj_nota = note_no;
+                Console.WriteLine(note_no);
+                while (broj_nota > 9)
+                {
+                    // Dobivamo po 10*faktor bodova za svaku od 10 idealno odsviranih nota zaredom:
+                    score_possible += faktor * 10 * 10;
+                    // Za svakih deset idealno odsviranih nota, faktor se poveća za 1,
+                    // ako još nije dosegao najveću vrijednost:
+                    if (faktor < 5) faktor++;
+                    broj_nota -= 10;
+                }
+                // Dodamo još bodove za ostale note:
+                score_possible += faktor * 10 * broj_nota;
+                Console.WriteLine(score_possible);
                 return;
             }
             // update postojećih pločica
@@ -156,9 +193,19 @@ namespace piano
         /// <summary>
         /// Briše najnižu pločicu s igrače plohe 
         /// te ažurira lowestTile na sljedeću najnižu ako takva postoji.
+        /// Dodaje 10 (ili više, ovisno o postignutom nizu) bodova.
         /// </summary>
-        public void hit()
+        public void hit(int space)
         {
+            if (lowestTile.Y + lowestTile.Height < space / 2) score += 2;
+            else if (lowestTile.Y + lowestTile.Height < space - 20) score += 5;
+            else
+            {
+                int faktor = combo / 10 + 1;
+                if (faktor > 5) faktor = 5;
+                score += 10 * faktor;
+                combo += 1;
+            }
             tiles.RemoveAt(0);
             if (tiles.Count != 0)
             {
@@ -168,6 +215,13 @@ namespace piano
             {
                 lowestTile = null;
             }
+        }
+
+        public void wrong()
+        {
+            score -= 2;
+            if (score < 0) score = 0;
+            combo = 0;
         }
 
         /// <summary>

@@ -184,7 +184,10 @@
   <data name="silence" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>tonovi\silence.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="swanlake" xml:space="preserve">
+    <value>G1    C1D1D_1F1G1   D_1G1   D_1G1   C1D_1C1G_D_1C1     F1D_1D1G1    C1D1D_1F1G1   D_1G1   D_1G1   C1D_1C1G_D_1C1       C1D1 D_1 F1 G1G_1A_1  G_1G1 G_1A_1C2  A_1G_1 A_1C2D2  C2G1D_1D1C1G1    C1D1D_1F1G1   D_1G1   D_1G1   C1D_1C1G_D_1C1</value>
+  </data>
   <data name="twinkle" xml:space="preserve">
-    <value>C1D1C1 G1G1 A1A1 G1  F1F1 E1E1 D1D1 C1   G1G1 F1F1 E1E1 D1  G1G1 F1F1 E1E1 D1   C1C1 G1G1 A1A1 G1  F1F1 E1E1 D1D1 C1</value>
+    <value>C1C1 G1G1 A1A1 G1  F1F1 E1E1 D1D1 C1   G1G1 F1F1 E1E1 D1  G1G1 F1F1 E1E1 D1   C1C1 G1G1 A1A1 G1  F1F1 E1E1 D1D1 C1</value>
   </data>
 </root>

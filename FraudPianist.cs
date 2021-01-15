@@ -16,6 +16,14 @@ namespace piano
     {
         private Game game;
 
+        /*
+         * Kako bismo izbjegli otvaranje mnogo novih formi, definirali smo pomoćne UserControls.
+         * Jedna od njih je MainMenu koja se prikazuje pri samom početku igre.
+         * Klikom na tipku 'New game' prikazat će se kontrola SongList koja nudi moguće igre.
+         * Istovremeno, sakrije se kontrola MainMenu.
+         * Tako odabirom pjesme skrivamo SongList ali prikazujemo klavijaturu i pločice.
+         * Klikom na 'Main menu' skrivamo sve funkcionalnosti ali prikazujemo Mainmenu kontrolu.
+         */
         private MainMenu newMenu = new MainMenu();
         private SongList chooseSongs = new SongList();
         private KeySelection selectKeys = new KeySelection();
@@ -43,7 +51,7 @@ namespace piano
             {"A_1", "O"},
             {"H1", "L"},
             {"C2", "Oem1"}, // kod za č
-            {"C_2", "Oem4"}, //š
+            {"C_2", "OemOpenBrackets"}, //š
             {"D2", "Oem7"}, //ć
             {"D_2", "Oem6"}, //đ
             {"E2", "Oem5"} //ž
@@ -55,36 +63,69 @@ namespace piano
         public FormGame()
         {
             InitializeComponent();
-
             pressedKey = "";
 
-            newMenu.Location = new System.Drawing.Point(450, 15);
-            newMenu.Anchor = (AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right);
+            // Ovdje inicijaliziramo početni ekran - glavni izbornik:
+            panel1.Visible = false;
+            Width = 600;
+            Height = 450;
+            newMenu.Location = new System.Drawing.Point(0, 0);
+            newMenu.Dock = DockStyle.Fill;
             Controls.Add(newMenu);
 
-            chooseSongs.Location = new System.Drawing.Point(475, 15);
-            chooseSongs.Anchor = (AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right);
+            // Inicijaliziramo izbornik za odabir pjesme:
+            chooseSongs.Location = new System.Drawing.Point(0, 0);
+            chooseSongs.Dock = DockStyle.Fill;
             chooseSongs.Visible = false;
+            // Postavljamo tekstove na tipkama izbornika:
+            chooseSongs.set_title("1. Twinkle, Twinkle Little Star", 1);
+            chooseSongs.set_title("2. Swan Lake", 2);
+            chooseSongs.set_title("3. Twinkle, Twinkle Little Star", 3);
             Controls.Add(chooseSongs);
 
             Controls["tilesBox"].Visible = false;
 
+            // Dodajemo pretplatnike na događaje:
             chooseSongs.Song1 += (sender, e) =>
             {
-                game = new Game(1);
+                // Standardna veličina ekrana za sviranje:
+                Width = 1350;
+                Height = 710;
+                game = new Game(1); // pjesma 1
+
+                // nadalje postavljamo na 'vidljivo' samo one stvari
+                // koje doista želimo vidjeti na ekranu:
                 Controls["tilesBox"].Visible = true;
+                panel1.Visible = true;
+                labelBodovi.Text = "0";
+                labelPoruka.Text = "";
+                labelResult.Visible = false;
+                labelPercent.Visible = false;
+                labelPass.Visible = false;
+                labelLvlMsg.Visible = false;
                 chooseSongs.Visible = false;
                 piano.Visible = true;
                 buttonMenu.Visible = true;
+                // omogućavamo rad tipkovnicom
                 KeyPreview = true;
                 KeyDown += new KeyEventHandler(piano_KeyDown);
+                // pokrećemo timere
                 timer1.Start();
                 timer2.Start();
             };
             chooseSongs.Song2 += (sender, e) =>
             {
+                Width = 1350;
+                Height = 710;
                 game = new Game(2);
                 Controls["tilesBox"].Visible = true;
+                panel1.Visible = true;
+                labelBodovi.Text = "0";
+                labelPoruka.Text = "";
+                labelResult.Visible = false;
+                labelPercent.Visible = false;
+                labelPass.Visible = false;
+                labelLvlMsg.Visible = false;
                 chooseSongs.Visible = false;
                 piano.Visible = true;
                 buttonMenu.Visible = true;
@@ -95,8 +136,17 @@ namespace piano
             };
             chooseSongs.Song3 += (sender, e) =>
             {
+                Width = 1350;
+                Height = 710;
                 game = new Game(3);
                 Controls["tilesBox"].Visible = true;
+                panel1.Visible = true;
+                labelBodovi.Text = "0";
+                labelPoruka.Text = "";
+                labelResult.Visible = false;
+                labelPercent.Visible = false;
+                labelPass.Visible = false;
+                labelLvlMsg.Visible = false;
                 chooseSongs.Visible = false;
                 piano.Visible = true;
                 buttonMenu.Visible = true;
@@ -107,11 +157,15 @@ namespace piano
             };
             chooseSongs.Menu += (sender, e) =>
             {
+                // povratak na meni
+                Width = 600;
+                Height = 450;
                 chooseSongs.Visible = false;
                 newMenu.Visible = true;
+                panel1.Visible = false;
             };
 
-
+            // pretplatnici na događaje (vezane uz glavni izbornik):
             newMenu.NewGame += (sender, e) =>
             {
                 newMenu.Visible = false;
@@ -139,15 +193,21 @@ namespace piano
 
         #region Events
 
+        /// <summary>
+        /// Reakcija na klik tipke za povratak na meni iz pjesme.
+        /// </summary>
         private void buttonMenu_Click(object sender, EventArgs e)
         {
+            // vraćamo se na meni i skrivamo ono što nam ne treba
+            Width = 600;
+            Height = 450;
             KeyDown -= new KeyEventHandler(piano_KeyDown);
             piano.Visible = false;
             buttonMenu.Visible = false;
             Controls["tilesBox"].Visible = false;
             KeyPreview = false;
             newMenu.Visible = true;
-
+            panel1.Visible = false;
         }
 
         private void piano_KeyDown(object sender, KeyEventArgs e)
@@ -168,9 +228,15 @@ namespace piano
                 string note = gameKeys.FirstOrDefault(x => x.Value == e.KeyCode.ToString()).Key;
                 if (note != null && game.lowestTile != null && note.Equals(game.lowestTile.id))
                 {
+                    // ako tipka još nije došla na ekran, zapravo ona još ne postoji
+                    // stoga je ne prihvaćamo kao točnu:
+                    if (game.lowestTile.Y + game.lowestTile.Height < 0) game.wrong();
+                    else game.hit(tilesBox.Height);
                     renderHit(Controls["piano"].Controls["btn" + note] as Button);
-                    game.hit();
                 }
+                else game.wrong();
+                // updateamo bodove
+                labelBodovi.Text = game.score.ToString();
             }
         }
 
@@ -193,6 +259,85 @@ namespace piano
         {
             game.update();
             game.render(this.Controls["tilesBox"] as PictureBox);
+            // konstantno provjeravamo vrijedi li naš combo:
+            if (game.combo >= 10) 
+            {
+                // ukoliko je u combo u tijeku, to naznačimo igraču:
+                int faktor = game.combo / 10 + 1;
+                if (faktor > 5) faktor = 5;
+                labelPoruka.ForeColor = Color.DarkGreen;
+                labelPoruka.Text = "COMBO " + faktor + "X";
+                game.combo_made = true;
+            }
+            else if (game.combo_made)
+            {
+                // ako combo više nije u tijeku, ali je combo_made postavljen na true
+                // to znači da smo imali combo ali je prekinut, pa treba postaviti poruku:
+                game.combo_made = false;
+                labelPoruka.ForeColor = Color.DarkRed;
+                labelPoruka.Text = "COMBO BROKEN";
+            }
+            if (game.isOver())
+            {
+                // ako je igra gotova, računamo rezultat:
+                double percentage = Math.Round((double)game.score / game.score_possible * 100, 2);
+                labelPoruka.Text = "";
+                labelResult.Visible = true;
+                labelPercent.Visible = true;
+                labelPercent.Text = percentage.ToString() + "%";
+                labelPass.Visible = true;
+
+                // ovisno o kvaliteti rezultata, prikazujemo prigodne poruke:
+                if (percentage == 100)
+                {
+                    labelPass.ForeColor = Color.DarkGreen;
+                    labelPass.Text = "Perfect score!";
+                }
+                else if (percentage >= 75)
+                {
+                    labelPass.ForeColor = Color.DarkGreen;
+                    labelPass.Text = "Amazing!";
+                }
+                else if (percentage >= 55)
+                {
+                    labelPass.ForeColor = Color.DarkGreen;
+                    labelPass.Text = "Well done!";
+                }
+                else if (percentage >= 30)
+                {
+                    labelPass.ForeColor = Color.DarkGreen;
+                    labelPass.Text = "You passed!";
+                }
+                else
+                {
+                    labelPass.ForeColor = Color.DarkRed;
+                    labelPass.Text = "You failed!";
+                }
+                KeyDown -= new KeyEventHandler(piano_KeyDown);
+
+                // ukoliko je level prijeđen, otključavamo sljedeći:
+                if (percentage >= 30)
+                {
+                    switch (game.Level.levelNumber)
+                    {
+                        case 1: 
+                            chooseSongs.enable(2);
+                            labelLvlMsg.Visible = true;
+                            labelLvlMsg.Text = "Level 2 is now unlocked!";
+                            break;
+                        case 2:
+                            chooseSongs.enable(3);
+                            labelLvlMsg.Visible = true;
+                            labelLvlMsg.Text = "Level 3 is now unlocked!";
+                            break;
+                        default: chooseSongs.enable(1);
+                            labelLvlMsg.Visible = true;
+                            labelLvlMsg.Text = "Level 2 is now unlocked!";
+                            break;
+                    }
+                }
+            }
+
         }
 
         private void timer2_Tick(object sender, EventArgs e)

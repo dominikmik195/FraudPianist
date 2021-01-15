@@ -46,10 +46,9 @@
             this.buttonNewGame.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MistyRose;
             this.buttonNewGame.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonNewGame.Font = new System.Drawing.Font("Lucida Handwriting", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonNewGame.Location = new System.Drawing.Point(157, 117);
-            this.buttonNewGame.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonNewGame.Location = new System.Drawing.Point(118, 95);
             this.buttonNewGame.Name = "buttonNewGame";
-            this.buttonNewGame.Size = new System.Drawing.Size(370, 60);
+            this.buttonNewGame.Size = new System.Drawing.Size(382, 49);
             this.buttonNewGame.TabIndex = 4;
             this.buttonNewGame.Text = "New game";
             this.buttonNewGame.UseVisualStyleBackColor = false;
@@ -60,10 +59,9 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.Font = new System.Drawing.Font("Lucida Handwriting", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(17, 7);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(13, 6);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(650, 94);
+            this.label1.Size = new System.Drawing.Size(592, 76);
             this.label1.TabIndex = 3;
             this.label1.Text = "Fraud Pianist";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -79,10 +77,9 @@
             this.buttonSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MistyRose;
             this.buttonSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSettings.Font = new System.Drawing.Font("Lucida Handwriting", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSettings.Location = new System.Drawing.Point(157, 281);
-            this.buttonSettings.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonSettings.Location = new System.Drawing.Point(118, 228);
             this.buttonSettings.Name = "buttonSettings";
-            this.buttonSettings.Size = new System.Drawing.Size(370, 60);
+            this.buttonSettings.Size = new System.Drawing.Size(382, 49);
             this.buttonSettings.TabIndex = 5;
             this.buttonSettings.Text = "Settings";
             this.buttonSettings.UseVisualStyleBackColor = false;
@@ -99,10 +96,9 @@
             this.buttonQuit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MistyRose;
             this.buttonQuit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonQuit.Font = new System.Drawing.Font("Lucida Handwriting", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonQuit.Location = new System.Drawing.Point(157, 364);
-            this.buttonQuit.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonQuit.Location = new System.Drawing.Point(118, 296);
             this.buttonQuit.Name = "buttonQuit";
-            this.buttonQuit.Size = new System.Drawing.Size(370, 60);
+            this.buttonQuit.Size = new System.Drawing.Size(382, 49);
             this.buttonQuit.TabIndex = 6;
             this.buttonQuit.Text = "Quit";
             this.buttonQuit.UseVisualStyleBackColor = false;
@@ -119,29 +115,26 @@
             this.buttonHowTo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MistyRose;
             this.buttonHowTo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonHowTo.Font = new System.Drawing.Font("Lucida Handwriting", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonHowTo.Location = new System.Drawing.Point(157, 202);
-            this.buttonHowTo.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonHowTo.Location = new System.Drawing.Point(118, 164);
             this.buttonHowTo.Name = "buttonHowTo";
-            this.buttonHowTo.Size = new System.Drawing.Size(370, 60);
+            this.buttonHowTo.Size = new System.Drawing.Size(382, 49);
             this.buttonHowTo.TabIndex = 7;
             this.buttonHowTo.Text = "How to";
             this.buttonHowTo.UseVisualStyleBackColor = false;
             this.buttonHowTo.Click += new System.EventHandler(this.buttonHowTo_Click);
             // 
-            // MainMenu1
+            // MainMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SeaShell;
-            this.ClientSize = new System.Drawing.Size(662, 506);
             this.Controls.Add(this.buttonHowTo);
             this.Controls.Add(this.buttonQuit);
             this.Controls.Add(this.buttonSettings);
             this.Controls.Add(this.buttonNewGame);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "MainMenu1";
-            //this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Name = "MainMenu";
+            this.Size = new System.Drawing.Size(600, 430);
             this.ResumeLayout(false);
 
         }

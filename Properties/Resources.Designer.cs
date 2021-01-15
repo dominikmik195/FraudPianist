@@ -259,7 +259,16 @@ namespace piano.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to C1D1C1 G1G1 A1A1 G1  F1F1 E1E1 D1D1 C1   G1G1 F1F1 E1E1 D1  G1G1 F1F1 E1E1 D1   C1C1 G1G1 A1A1 G1  F1F1 E1E1 D1D1 C1.
+        ///   Looks up a localized string similar to G1    C1D1D_1F1G1   D_1G1   D_1G1   C1D_1C1G_D_1C1     F1D_1D1G1    C1D1D_1F1G1   D_1G1   D_1G1   C1D_1C1G_D_1C1       C1D1 D_1 F1 G1G_1A_1  G_1G1 G_1A_1C2  A_1G_1 A_1C2D2  C2G1D_1D1C1G1    C1D1D_1F1G1   D_1G1   D_1G1   C1D_1C1G_D_1C1.
+        /// </summary>
+        internal static string swanlake {
+            get {
+                return ResourceManager.GetString("swanlake", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to C1C1 G1G1 A1A1 G1  F1F1 E1E1 D1D1 C1   G1G1 F1F1 E1E1 D1  G1G1 F1F1 E1E1 D1   C1C1 G1G1 A1A1 G1  F1F1 E1E1 D1D1 C1.
         /// </summary>
         internal static string twinkle {
             get {

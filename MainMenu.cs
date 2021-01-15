@@ -10,8 +10,14 @@ using System.Windows.Forms;
 
 namespace piano
 {
+    /// <summary>
+    /// Klasa (user control) koja predstavlja glavni izbornik igre.
+    /// </summary>
     public partial class MainMenu : UserControl
     {
+        /// <summary>
+        /// Konstruktor.
+        /// </summary>
         public MainMenu()
         {
             InitializeComponent();
@@ -20,6 +26,7 @@ namespace piano
 
         public event EventHandler NewGame, Settings, HowTo, Quit;
 
+        // funkcije koje reagiraju na tipke menija
         private void buttonQuit_Click(object sender, EventArgs e)
         {
             if (Quit != null) Quit(sender, e);

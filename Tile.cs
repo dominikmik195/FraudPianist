@@ -60,6 +60,13 @@ namespace piano
             get { return y; }
             set { y = value; }
         }
+        /// <summary>
+        /// Svojstvo height.
+        /// </summary>
+        public double Height
+        {
+            get { return height; }
+        }
 
         /// <summary>
         /// Iscrtava pločicu koristeći <code>Graphics</code> parametar predan kao argument.
