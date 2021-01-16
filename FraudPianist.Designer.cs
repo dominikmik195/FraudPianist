@@ -102,9 +102,9 @@
             this.labelPass.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.labelPass.BackColor = System.Drawing.Color.Azure;
             this.labelPass.Font = new System.Drawing.Font("Lucida Handwriting", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPass.Location = new System.Drawing.Point(23, 362);
+            this.labelPass.Location = new System.Drawing.Point(50, 362);
             this.labelPass.Name = "labelPass";
-            this.labelPass.Size = new System.Drawing.Size(271, 43);
+            this.labelPass.Size = new System.Drawing.Size(262, 43);
             this.labelPass.TabIndex = 8;
             this.labelPass.Text = "pass/fail";
             this.labelPass.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -114,9 +114,9 @@
             this.labelPercent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.labelPercent.BackColor = System.Drawing.Color.Azure;
             this.labelPercent.Font = new System.Drawing.Font("Lucida Handwriting", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPercent.Location = new System.Drawing.Point(26, 319);
+            this.labelPercent.Location = new System.Drawing.Point(50, 319);
             this.labelPercent.Name = "labelPercent";
-            this.labelPercent.Size = new System.Drawing.Size(271, 43);
+            this.labelPercent.Size = new System.Drawing.Size(262, 43);
             this.labelPercent.TabIndex = 7;
             this.labelPercent.Text = "percent";
             this.labelPercent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -127,9 +127,9 @@
             this.labelResult.BackColor = System.Drawing.Color.Azure;
             this.labelResult.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelResult.Font = new System.Drawing.Font("Lucida Handwriting", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelResult.Location = new System.Drawing.Point(23, 276);
+            this.labelResult.Location = new System.Drawing.Point(50, 276);
             this.labelResult.Name = "labelResult";
-            this.labelResult.Size = new System.Drawing.Size(271, 43);
+            this.labelResult.Size = new System.Drawing.Size(262, 43);
             this.labelResult.TabIndex = 6;
             this.labelResult.Text = "Result:";
             this.labelResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -139,7 +139,7 @@
             this.labelPoruka.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.labelPoruka.BackColor = System.Drawing.Color.Azure;
             this.labelPoruka.Font = new System.Drawing.Font("Lucida Handwriting", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPoruka.Location = new System.Drawing.Point(26, 174);
+            this.labelPoruka.Location = new System.Drawing.Point(47, 175);
             this.labelPoruka.Name = "labelPoruka";
             this.labelPoruka.Size = new System.Drawing.Size(265, 50);
             this.labelPoruka.TabIndex = 5;
@@ -152,9 +152,9 @@
             this.labelBodovi.BackColor = System.Drawing.Color.AliceBlue;
             this.labelBodovi.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelBodovi.Font = new System.Drawing.Font("Lucida Handwriting", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelBodovi.Location = new System.Drawing.Point(129, 116);
+            this.labelBodovi.Location = new System.Drawing.Point(118, 115);
             this.labelBodovi.Name = "labelBodovi";
-            this.labelBodovi.Size = new System.Drawing.Size(60, 50);
+            this.labelBodovi.Size = new System.Drawing.Size(116, 50);
             this.labelBodovi.TabIndex = 4;
             this.labelBodovi.Text = "0";
             this.labelBodovi.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

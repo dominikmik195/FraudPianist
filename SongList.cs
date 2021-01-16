@@ -79,6 +79,28 @@ namespace piano
                     break;
             }
         }
+
+        /// <summary>
+        /// Provjerava je li određeni level omogućen.
+        /// </summary>
+        /// 
+        public bool isEnabled(int i)
+        {
+            switch (i)
+            {
+                case 1:
+                    return buttonLevel1.Enabled;
+                case 2:
+                    return buttonLevel2.Enabled;
+                case 3:
+                    return buttonLevel3.Enabled;
+                case 4:
+                    return buttonLevel4.Enabled;
+                default:
+                    return buttonLevel5.Enabled;
+            }
+        }
+
         // Nadalje funkcije koje reagiraju na klikove tipki:
         private void buttonLevel1_Click(object sender, EventArgs e)
         {

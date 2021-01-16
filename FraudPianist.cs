@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Resources;
+using System.IO;
 
 
 namespace piano
@@ -68,11 +70,12 @@ namespace piano
         public FormGame()
         {
             InitializeComponent();
-
             pressedKey = "";
 
             Controls.Add(newMenu);
             Controls.Add(chooseSongs);
+            
+            enableSavedLevels();
 
             clearFormGameFor(2430, 785);
             mainMenuShow();
@@ -259,9 +262,13 @@ namespace piano
                 // ukoliko je level prijeđen, otključavamo sljedeći:
                 if (percentage >= 30)
                 {
-                    chooseSongs.enable(game.Level.levelNumber);
-                    labelLvlMsg.Visible = true;
-                    labelLvlMsg.Text = "Level " + game.Level.levelNumber.ToString() + " is now unlocked!";
+                    if (!isLvlSaved(game.Level.levelNumber + 1) && game.Level.levelNumber < 5)
+                    {
+                        saveLvl(game.Level.levelNumber+1);
+                        chooseSongs.enable(game.Level.levelNumber+1);
+                        labelLvlMsg.Visible = true;
+                        labelLvlMsg.Text = "Level " + (game.Level.levelNumber+1).ToString() + " is now unlocked!";
+                    }
                 }
             }
         }
@@ -359,6 +366,8 @@ namespace piano
 
             timer1.Start();
             timer2.Start();
+
+            SendKeys.SendWait("{ENTER}");
         }
 
         /// <summary>
@@ -472,6 +481,51 @@ namespace piano
             //if (Size.Height < height)
             //    Height = height;
 
+        }
+
+        private void enableSavedLevels()
+        {
+            string path = @"..\..\Resources\levels.txt";
+            if (!File.Exists(path)) return;
+            StreamReader lvls = File.OpenText(path);
+            string line;
+            while ((line = lvls.ReadLine()) != null)
+                chooseSongs.enable(Int32.Parse(line));
+            lvls.Close();
+        }
+
+        /// <summary>
+        /// Funkcija provjerava je li neki level spremljen.
+        /// </summary>
+        /// <param name="i">Broj levela.</param>
+        private bool isLvlSaved(int i)
+        {
+            string path = @"..\..\Resources\levels.txt";
+            if (!File.Exists(path)) return false;
+            StreamReader lvls = File.OpenText(path);
+            string line;
+            while ((line = lvls.ReadLine()) != null)
+                if (Int32.Parse(line) == i)
+                {
+                    lvls.Close();
+                    return true;
+                }
+            lvls.Close();
+            return false;
+        }
+
+        /// <summary>
+        /// Funkcija sprema level.
+        /// </summary>
+        /// <param name="i">Broj levela.</param>
+        private void saveLvl(int i)
+        {
+            string path = @"..\..\Resources\levels.txt";
+            if (!File.Exists(path)) return;
+            StreamWriter lvls = File.AppendText(path);
+            lvls.WriteLine(i);
+            lvls.Flush();
+            lvls.Close();
         }
 
         #endregion
