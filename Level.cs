@@ -36,11 +36,11 @@ namespace piano
     public class Level
         : Enumeration
     {
-        public static Level ONE = new Level("twinkle", 80, 60, 40, 7, 1);
-        public static Level TWO = new Level("swanlake", 80, 60, 40, 6, 2); //TODO
-        public static Level THREE = new Level("twinkle", 80, 60, 40, 5, 3); //TODO
-        public static Level FOUR = new Level("twinkle", 80, 60, 40, 5, 4); //TODO
-        public static Level FIVE = new Level("twinkle", 80, 60, 40, 5, 5); //TODO
+        public static Level ONE = new Level("twinkle", 110, 95, 40, 7, 1);
+        public static Level TWO = new Level("elise", 100, 85, 30, 7, 2);
+        public static Level THREE = new Level("seniorita", 90, 75, 25, 8, 3);
+        public static Level FOUR = new Level("labamba", 80, 65, 20, 9, 4); 
+        public static Level FIVE = new Level("carmen", 70, 55, 15, 10, 5); 
 
         public Level(string song, double whiteWidth, double blackWidth, double space, double step, int number)
                     : base(song, whiteWidth, blackWidth, space, step, number)

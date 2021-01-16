@@ -143,6 +143,15 @@ namespace piano.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to C1    G1D_2 G1 C1   G1D_2 G1 C1   G1D_2 G1 C1     C2 H1 A_1A_1A_1A1 G_1 G_1 G1G1F_1 F1 D_1 D1D_1F1 D_1 D1    C2 H1 A_1A_1A_1A1 G_1 G1G1 G1F_1 F1 D_1 D1 C1D1D_1 D1 C1    C2 H1 A_1A_1A_1A1 G_1 G1G1 G1F_1 F1 D_1 D1D_1F1 D_1 D1    C2 H1 A_1A_1A_1A1 G_1 G1G1 G1F_1 F1 D_1 D1 C1D1D_1 D1 C1   G1C1 D1 E1   G1E1 D1 C1  D1E1 F1 G1G1G1G1A1 G1 F1   A1D1 E1 F1   A1F1 E1 D1  E1F1 G1 A1A1A1A1H1 A1 G1  G1C2 D2 E2   G1E1 D1 C1  D1E1 F1 G1G1G1G1C2 H1 F1  A1D2 E2 C1  A1F1 E1 D1  E1F1 G1 H1   E2    D2 C2  G1E2 G1  C2  G1 E2 G1  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string carmen {
+            get {
+                return ResourceManager.GetString("carmen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
         internal static System.IO.UnmanagedMemoryStream d_1 {
@@ -193,6 +202,15 @@ namespace piano.Properties {
         internal static System.IO.UnmanagedMemoryStream e2 {
             get {
                 return ResourceManager.GetStream("e2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to E2D_2E2D_2E2H1D2C2A1 C1E1A1H1 E1G_1H1C2 E1E2D_2E2D_2E2H1D2C2A1 C1E1A1H1 E1C2H1A1.
+        /// </summary>
+        internal static string elise {
+            get {
+                return ResourceManager.GetString("elise", resourceCulture);
             }
         }
         
@@ -260,6 +278,15 @@ namespace piano.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to C2C2C2C2 C2H1 G1      C2C2C2C2 C2H1 G1 G1G1 G1 A1F_1A1C2H1A1H1G1       C2C2C2C2 C2H1 G1 G1G1 G1 A1F_1A1C2H1A1H1G1       C2C2 C2C2 H1G1 G1G1 G1 A1 F_1A1 C2 H1 H1 G1 E1 D1   G1   E1   F_1 F_1     G1    E1   F_1 F_1      H1     G1   A1 A1    H1   G1   A1 A1 D2C2 H1A1G1G1G1.
+        /// </summary>
+        internal static string labamba {
+            get {
+                return ResourceManager.GetString("labamba", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap mainmenu {
@@ -310,11 +337,50 @@ namespace piano.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap plus {
+            get {
+                object obj = ResourceManager.GetObject("plus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap puzzle {
+            get {
+                object obj = ResourceManager.GetObject("puzzle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to H1C2H1A1H1C2 A1 E1 C2H1 G1 H1C2H1A1H1C2 G1E1 C2H1 G1 H1C2H1A1G1F1C2 C2C2F1C2 C2C2 H1 C2H1C2D2E2E2H1 C2H1C2H1A1 A1A1.
+        /// </summary>
+        internal static string seniorita {
+            get {
+                return ResourceManager.GetString("seniorita", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
         internal static System.IO.UnmanagedMemoryStream silence {
             get {
                 return ResourceManager.GetStream("silence", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap star {
+            get {
+                object obj = ResourceManager.GetObject("star", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

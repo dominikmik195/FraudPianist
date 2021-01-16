@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Resources;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 
 namespace piano
 {
@@ -26,8 +27,14 @@ namespace piano
         private List<Tile> tiles;
         // zadnje stvorena pločica (odgovara zadnjoj pročitanoj noti)
         private Tile previousTile;
+        // zadnje ispravno odsvirana pločica
+        private Tile lastPlayedTile;
         // najniža 'živa' pločica (ona koju treba sljedeću odsvirati)
         public Tile lowestTile;
+
+        // pomoćna varijabla koja služi za određivanje perioda u kojem je prikazan
+        // pravokutnih iznad točno odsvirane note
+        private int counterHit;
 
 
         // ukupan broj ostvarenih bodova
@@ -89,6 +96,8 @@ namespace piano
             tiles = new List<Tile>();
             lowestTile = null;
             previousTile = null;
+            lastPlayedTile = null;
+            counterHit = 3; //10 tickova timera
 
             note_no = 0;
             combo_made = false;
@@ -213,11 +222,35 @@ namespace piano
             Bitmap bitmap = new Bitmap(box.Width, box.Height);
             Graphics graphics = Graphics.FromImage(bitmap);
 
+            if (lastPlayedTile != null && counterHit >= 0)
+            {
+                renderHit(graphics);
+                counterHit--;
+            }
+
             foreach (var tile in tiles)
             {
                 tile.render(graphics);
             }
             box.Image = bitmap;
+        }
+
+        /// <summary>
+        /// Iscrtava pravokutnik iznad točno odvirane klavirske tipke.
+        /// </summary>
+        /// <param name="graphics"></param>
+        private void renderHit(Graphics graphics)
+        {
+            int tilesBoxHeight = Application.OpenForms["FormGame"].Controls["tilesBox"].Height;
+            LinearGradientBrush brush = new LinearGradientBrush(
+                new Point(0, tilesBoxHeight),
+                new Point(0, 0),
+                Color.FromArgb((255 - (3 - counterHit) * 60), Color.Orchid),
+                Color.FromArgb((255 - (3 - counterHit) * 70), Color.Azure)
+            );
+            Button lastPlayedButton = Application.OpenForms["FormGame"].Controls["piano"].Controls["btn" + lastPlayedTile.Id] as Button;
+
+            graphics.FillRectangle(brush, lastPlayedButton.Location.X, 0, lastPlayedButton.Width, tilesBoxHeight);
         }
 
         /// <summary>
@@ -236,6 +269,11 @@ namespace piano
                 score += 10 * faktor;
                 combo += 1;
             }
+
+            // ažuriranje info za crtanje pravokutnika iznad tipke klavira
+            lastPlayedTile = tiles.First();
+            counterHit = 3;
+
             tiles.RemoveAt(0);
             if (tiles.Count != 0)
             {
@@ -262,6 +300,8 @@ namespace piano
             tiles.Clear();
             lowestTile = null;
             previousTile = null;
+            lastPlayedTile = null;
+            counterHit = 3;
         }
     }
 }

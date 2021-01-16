@@ -28,6 +28,7 @@ namespace piano
         private MainMenu newMenu = new MainMenu();
         private SongList chooseSongs = new SongList();
         private KeySelection selectKeys = new KeySelection();
+        private HowTo rules = new HowTo();
 
         private Image back = ((System.Drawing.Image)(Properties.Resources.ResourceManager.GetObject("background")));
 
@@ -112,6 +113,10 @@ namespace piano
             {
                 selectKeys.ShowDialog(this);
             };
+            newMenu.HowTo += (sender, e) =>
+            {
+                rules.ShowDialog(this);
+            };
 
             this.MinimumSize = new System.Drawing.Size(piano.Width, piano.Height+50);
         }
@@ -155,7 +160,7 @@ namespace piano
                     string s = e.KeyCode.ToString();
                     // provjeri je li igrač odsvirao točnu notu
                     string note = gameKeys.FirstOrDefault(x => x.Value == e.KeyCode.ToString()).Key;
-                    if (note != null && game.lowestTile != null && note.Equals(game.lowestTile.id))
+                    if (note != null && game.lowestTile != null && note.Equals(game.lowestTile.Id))
                     {
                         // ako tipka još nije došla na ekran, zapravo ona još ne postoji
                         // stoga je ne prihvaćamo kao točnu:
@@ -167,7 +172,6 @@ namespace piano
                         {
                             game.hit(tilesBox.Height);
                         }
-                        renderHit(Controls["piano"].Controls["btn" + note] as Button);
                     }
                     else game.wrong();
                     // updateamo bodove
@@ -255,24 +259,9 @@ namespace piano
                 // ukoliko je level prijeđen, otključavamo sljedeći:
                 if (percentage >= 30)
                 {
-                    switch (game.Level.levelNumber)
-                    {
-                        case 1:
-                            chooseSongs.enable(2);
-                            labelLvlMsg.Visible = true;
-                            labelLvlMsg.Text = "Level 2 is now unlocked!";
-                            break;
-                        case 2:
-                            chooseSongs.enable(3);
-                            labelLvlMsg.Visible = true;
-                            labelLvlMsg.Text = "Level 3 is now unlocked!";
-                            break;
-                        default:
-                            chooseSongs.enable(1);
-                            labelLvlMsg.Visible = true;
-                            labelLvlMsg.Text = "Level 2 is now unlocked!";
-                            break;
-                    }
+                    chooseSongs.enable(game.Level.levelNumber);
+                    labelLvlMsg.Visible = true;
+                    labelLvlMsg.Text = "Level " + game.Level.levelNumber.ToString() + " is now unlocked!";
                 }
             }
         }
@@ -486,22 +475,5 @@ namespace piano
         }
 
         #endregion
-
-
-        //TODO
-        private void renderHit(Button button)
-        {
-            Graphics g = CreateGraphics();
-            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-
-            LinearGradientBrush brush = new LinearGradientBrush(
-                new Point(0, this.Controls["tilesBox"].Height),
-                new Point(0, 0),
-                Color.Orchid,
-                Color.Azure
-            );
-
-            g.FillRectangle(brush, button.Location.X, 0, button.Width, this.Controls["tilesBox"].Height);
-        }
     }
 }

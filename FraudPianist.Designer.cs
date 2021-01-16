@@ -56,10 +56,10 @@
             this.buttonMenu.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.buttonMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonMenu.Image = global::piano.Properties.Resources.Webp_net_resizeimage;
-            this.buttonMenu.Location = new System.Drawing.Point(422, 0);
+            this.buttonMenu.Location = new System.Drawing.Point(316, 0);
             this.buttonMenu.Margin = new System.Windows.Forms.Padding(0);
             this.buttonMenu.Name = "buttonMenu";
-            this.buttonMenu.Size = new System.Drawing.Size(100, 104);
+            this.buttonMenu.Size = new System.Drawing.Size(75, 84);
             this.buttonMenu.TabIndex = 3;
             this.buttonMenu.TabStop = false;
             this.buttonMenu.UseVisualStyleBackColor = false;
@@ -79,10 +79,10 @@
             this.panelScore.Controls.Add(this.labelResult);
             this.panelScore.Controls.Add(this.labelPoruka);
             this.panelScore.Controls.Add(this.labelBodovi);
-            this.panelScore.Location = new System.Drawing.Point(1409, -1);
+            this.panelScore.Location = new System.Drawing.Point(1057, -1);
             this.panelScore.Margin = new System.Windows.Forms.Padding(0);
             this.panelScore.Name = "panelScore";
-            this.panelScore.Size = new System.Drawing.Size(522, 741);
+            this.panelScore.Size = new System.Drawing.Size(392, 773);
             this.panelScore.TabIndex = 4;
             // 
             // labelLvlMsg
@@ -90,10 +90,9 @@
             this.labelLvlMsg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.labelLvlMsg.BackColor = System.Drawing.Color.Azure;
             this.labelLvlMsg.Font = new System.Drawing.Font("Lucida Handwriting", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLvlMsg.Location = new System.Drawing.Point(74, 394);
-            this.labelLvlMsg.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelLvlMsg.Location = new System.Drawing.Point(56, 405);
             this.labelLvlMsg.Name = "labelLvlMsg";
-            this.labelLvlMsg.Size = new System.Drawing.Size(361, 137);
+            this.labelLvlMsg.Size = new System.Drawing.Size(271, 111);
             this.labelLvlMsg.TabIndex = 9;
             this.labelLvlMsg.Text = "level message";
             this.labelLvlMsg.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -103,10 +102,9 @@
             this.labelPass.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.labelPass.BackColor = System.Drawing.Color.Azure;
             this.labelPass.Font = new System.Drawing.Font("Lucida Handwriting", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPass.Location = new System.Drawing.Point(31, 341);
-            this.labelPass.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelPass.Location = new System.Drawing.Point(23, 362);
             this.labelPass.Name = "labelPass";
-            this.labelPass.Size = new System.Drawing.Size(361, 53);
+            this.labelPass.Size = new System.Drawing.Size(271, 43);
             this.labelPass.TabIndex = 8;
             this.labelPass.Text = "pass/fail";
             this.labelPass.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -116,10 +114,9 @@
             this.labelPercent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.labelPercent.BackColor = System.Drawing.Color.Azure;
             this.labelPercent.Font = new System.Drawing.Font("Lucida Handwriting", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPercent.Location = new System.Drawing.Point(35, 288);
-            this.labelPercent.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelPercent.Location = new System.Drawing.Point(26, 319);
             this.labelPercent.Name = "labelPercent";
-            this.labelPercent.Size = new System.Drawing.Size(361, 53);
+            this.labelPercent.Size = new System.Drawing.Size(271, 43);
             this.labelPercent.TabIndex = 7;
             this.labelPercent.Text = "percent";
             this.labelPercent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -130,10 +127,9 @@
             this.labelResult.BackColor = System.Drawing.Color.Azure;
             this.labelResult.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelResult.Font = new System.Drawing.Font("Lucida Handwriting", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelResult.Location = new System.Drawing.Point(31, 235);
-            this.labelResult.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelResult.Location = new System.Drawing.Point(23, 276);
             this.labelResult.Name = "labelResult";
-            this.labelResult.Size = new System.Drawing.Size(361, 52);
+            this.labelResult.Size = new System.Drawing.Size(271, 43);
             this.labelResult.TabIndex = 6;
             this.labelResult.Text = "Result:";
             this.labelResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -143,10 +139,9 @@
             this.labelPoruka.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.labelPoruka.BackColor = System.Drawing.Color.Azure;
             this.labelPoruka.Font = new System.Drawing.Font("Lucida Handwriting", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPoruka.Location = new System.Drawing.Point(34, 109);
-            this.labelPoruka.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelPoruka.Location = new System.Drawing.Point(26, 174);
             this.labelPoruka.Name = "labelPoruka";
-            this.labelPoruka.Size = new System.Drawing.Size(353, 62);
+            this.labelPoruka.Size = new System.Drawing.Size(265, 50);
             this.labelPoruka.TabIndex = 5;
             this.labelPoruka.Text = "label";
             this.labelPoruka.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -157,10 +152,9 @@
             this.labelBodovi.BackColor = System.Drawing.Color.AliceBlue;
             this.labelBodovi.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelBodovi.Font = new System.Drawing.Font("Lucida Handwriting", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelBodovi.Location = new System.Drawing.Point(172, 38);
-            this.labelBodovi.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelBodovi.Location = new System.Drawing.Point(129, 116);
             this.labelBodovi.Name = "labelBodovi";
-            this.labelBodovi.Size = new System.Drawing.Size(79, 61);
+            this.labelBodovi.Size = new System.Drawing.Size(60, 50);
             this.labelBodovi.TabIndex = 4;
             this.labelBodovi.Text = "0";
             this.labelBodovi.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -173,7 +167,7 @@
             this.tilesBox.Location = new System.Drawing.Point(-1, -2);
             this.tilesBox.Margin = new System.Windows.Forms.Padding(0);
             this.tilesBox.Name = "tilesBox";
-            this.tilesBox.Size = new System.Drawing.Size(1398, 377);
+            this.tilesBox.Size = new System.Drawing.Size(1048, 477);
             this.tilesBox.TabIndex = 5;
             this.tilesBox.TabStop = false;
             // 
@@ -184,34 +178,34 @@
             // 
             // timer2
             // 
-            this.timer2.Interval = 700;
+            this.timer2.Interval = 400;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
             // piano
             // 
             this.piano.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.piano.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.piano.Location = new System.Drawing.Point(2, 365);
+            this.piano.Location = new System.Drawing.Point(2, 468);
             this.piano.Margin = new System.Windows.Forms.Padding(0);
             this.piano.Name = "piano";
-            this.piano.Size = new System.Drawing.Size(1407, 373);
+            this.piano.Size = new System.Drawing.Size(1055, 303);
             this.piano.TabIndex = 0;
             this.piano.Visible = false;
             // 
             // FormGame
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Azure;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(2412, 738);
+            this.ClientSize = new System.Drawing.Size(1448, 771);
             this.Controls.Add(this.tilesBox);
             this.Controls.Add(this.panelScore);
             this.Controls.Add(this.piano);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(0);
-            this.MinimumSize = new System.Drawing.Size(965, 504);
+            this.MinimumSize = new System.Drawing.Size(728, 417);
             this.Name = "FormGame";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Fraud Pianist";

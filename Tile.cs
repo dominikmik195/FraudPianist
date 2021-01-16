@@ -16,7 +16,7 @@ namespace piano
     {
         private double x, y, width, height;
 
-        public string id; // nota na koju se odnosi (A_-E2)
+        private string id; // nota na koju se odnosi (A_-E2)
         private string type; // "white" ili "black"
 
         // za iscrtavanje pločice
@@ -67,6 +67,15 @@ namespace piano
         public double Height
         {
             get { return height; }
+        }
+
+        /// <summary>
+        /// Svojstvo Id.
+        /// </summary>
+        public string Id
+        {
+            get { return id; }
+            set { id = value; }
         }
 
         /// <summary>

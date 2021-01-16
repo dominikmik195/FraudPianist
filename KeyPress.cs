@@ -46,7 +46,7 @@ namespace piano
 
             if (isKeyUsed(pressedKeyName))
             {
-                lbPressKey.Text = "Try again! The key is already in use.";
+                lbPressKey.Text = "Try again! That key is already in use.";
                 return;
             }
 
