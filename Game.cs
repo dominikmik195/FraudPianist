@@ -275,5 +275,10 @@ namespace piano
 
             this.render(Application.OpenForms["FormGame"].Controls["tilesBox"] as PictureBox);
         }
+
+        public void breakCombo()
+        {
+            combo = 0;
+        }
     }
 }

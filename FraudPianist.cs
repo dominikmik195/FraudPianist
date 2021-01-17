@@ -215,6 +215,8 @@ namespace piano
             game.update();
             game.render(this.Controls["tilesBox"] as PictureBox);
 
+            if (game.lowestTile != null && game.lowestTile.Y > tilesBox.Height - 80) game.breakCombo();
+
             // konstantno provjeravamo vrijedi li naš combo:
             if (game.Combo >= 10)
             {
@@ -223,6 +225,7 @@ namespace piano
                 if (faktor > 5) faktor = 5;
                 labelPoruka.ForeColor = Color.Teal;
                 labelPoruka.Text = "COMBO " + faktor + "X";
+                labelPoruka.Visible = true;
                 game.Combo_made = true;
             }
             else if (game.Combo_made)
@@ -254,17 +257,17 @@ namespace piano
                     labelPass.ForeColor = Color.Teal;
                     labelPass.Text = "Perfect score!";
                 }
-                else if (percentage >= 75)
+                else if (percentage >= 80)
                 {
                     labelPass.ForeColor = Color.Teal;
                     labelPass.Text = "Amazing!";
                 }
-                else if (percentage >= 55)
+                else if (percentage >= 60)
                 {
                     labelPass.ForeColor = Color.Teal;
                     labelPass.Text = "Well done!";
                 }
-                else if (percentage >= 30)
+                else if (percentage >= 40)
                 {
                     labelPass.ForeColor = Color.Teal;
                     labelPass.Text = "You passed!";
@@ -284,7 +287,7 @@ namespace piano
                     MessageBox.Show(message, title);
                 }
                 // ukoliko je level prijeđen, otključavamo sljedeći:
-                else if (percentage >= 30)
+                else if (percentage >= 40)
                 {
                     if (!isLvlSaved(game.Level.levelNumber + 1) && game.Level.levelNumber < 5)
                     {
