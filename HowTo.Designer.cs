@@ -31,9 +31,6 @@ namespace piano
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HowTo));
-            this.basicsBox = new System.Windows.Forms.RichTextBox();
-            this.additionalBox = new System.Windows.Forms.RichTextBox();
-            this.scoringBox = new System.Windows.Forms.RichTextBox();
             this.puzzleIcon = new System.Windows.Forms.PictureBox();
             this.starIcon = new System.Windows.Forms.PictureBox();
             this.plusIcon = new System.Windows.Forms.PictureBox();
@@ -43,6 +40,9 @@ namespace piano
             this.line3 = new System.Windows.Forms.PictureBox();
             this.line4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.basicsText = new System.Windows.Forms.Label();
+            this.scoringText = new System.Windows.Forms.Label();
+            this.additionalText = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.puzzleIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.starIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.plusIcon)).BeginInit();
@@ -54,50 +54,11 @@ namespace piano
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
-            // basicsBox
-            // 
-            this.basicsBox.BackColor = System.Drawing.Color.Azure;
-            this.basicsBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.basicsBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.basicsBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.basicsBox.Location = new System.Drawing.Point(57, 32);
-            this.basicsBox.Name = "basicsBox";
-            this.basicsBox.ReadOnly = true;
-            this.basicsBox.Size = new System.Drawing.Size(708, 202);
-            this.basicsBox.TabIndex = 0;
-            this.basicsBox.Text = resources.GetString("basicsBox.Text");
-            // 
-            // additionalBox
-            // 
-            this.additionalBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.additionalBox.BackColor = System.Drawing.Color.Azure;
-            this.additionalBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.additionalBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.additionalBox.Location = new System.Drawing.Point(57, 526);
-            this.additionalBox.Name = "additionalBox";
-            this.additionalBox.ReadOnly = true;
-            this.additionalBox.Size = new System.Drawing.Size(606, 157);
-            this.additionalBox.TabIndex = 1;
-            this.additionalBox.Text = resources.GetString("additionalBox.Text");
-            // 
-            // scoringBox
-            // 
-            this.scoringBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.scoringBox.BackColor = System.Drawing.Color.Azure;
-            this.scoringBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.scoringBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.scoringBox.Location = new System.Drawing.Point(434, 281);
-            this.scoringBox.Name = "scoringBox";
-            this.scoringBox.ReadOnly = true;
-            this.scoringBox.Size = new System.Drawing.Size(796, 176);
-            this.scoringBox.TabIndex = 2;
-            this.scoringBox.Text = resources.GetString("scoringBox.Text");
-            // 
             // puzzleIcon
             // 
             this.puzzleIcon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.puzzleIcon.Image = ((System.Drawing.Image)(resources.GetObject("puzzleIcon.Image")));
-            this.puzzleIcon.Location = new System.Drawing.Point(835, 48);
+            this.puzzleIcon.Location = new System.Drawing.Point(835, 32);
             this.puzzleIcon.Name = "puzzleIcon";
             this.puzzleIcon.Size = new System.Drawing.Size(137, 133);
             this.puzzleIcon.TabIndex = 3;
@@ -127,7 +88,7 @@ namespace piano
             // 
             this.line1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.line1.BackColor = System.Drawing.Color.Teal;
-            this.line1.Location = new System.Drawing.Point(-4, 246);
+            this.line1.Location = new System.Drawing.Point(-4, 251);
             this.line1.Name = "line1";
             this.line1.Size = new System.Drawing.Size(912, 10);
             this.line1.TabIndex = 6;
@@ -182,12 +143,45 @@ namespace piano
             this.pictureBox5.TabIndex = 11;
             this.pictureBox5.TabStop = false;
             // 
+            // basicsText
+            // 
+            this.basicsText.AutoSize = true;
+            this.basicsText.Font = new System.Drawing.Font("Lucida Handwriting", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.basicsText.Location = new System.Drawing.Point(50, 32);
+            this.basicsText.Name = "basicsText";
+            this.basicsText.Size = new System.Drawing.Size(637, 192);
+            this.basicsText.TabIndex = 12;
+            this.basicsText.Text = resources.GetString("basicsText.Text");
+            // 
+            // scoringText
+            // 
+            this.scoringText.AutoSize = true;
+            this.scoringText.Font = new System.Drawing.Font("Lucida Handwriting", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.scoringText.Location = new System.Drawing.Point(432, 289);
+            this.scoringText.Name = "scoringText";
+            this.scoringText.Size = new System.Drawing.Size(769, 160);
+            this.scoringText.TabIndex = 13;
+            this.scoringText.Text = resources.GetString("scoringText.Text");
+            // 
+            // additionalText
+            // 
+            this.additionalText.AutoSize = true;
+            this.additionalText.Font = new System.Drawing.Font("Lucida Handwriting", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.additionalText.Location = new System.Drawing.Point(50, 528);
+            this.additionalText.Name = "additionalText";
+            this.additionalText.Size = new System.Drawing.Size(510, 144);
+            this.additionalText.TabIndex = 14;
+            this.additionalText.Text = resources.GetString("additionalText.Text");
+            // 
             // HowTo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Azure;
-            this.ClientSize = new System.Drawing.Size(1242, 719);
+            this.ClientSize = new System.Drawing.Size(1242, 718);
+            this.Controls.Add(this.additionalText);
+            this.Controls.Add(this.scoringText);
+            this.Controls.Add(this.basicsText);
             this.Controls.Add(this.plusIcon);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.line4);
@@ -195,15 +189,13 @@ namespace piano
             this.Controls.Add(this.puzzleIcon);
             this.Controls.Add(this.line2);
             this.Controls.Add(this.line1);
-            this.Controls.Add(this.scoringBox);
-            this.Controls.Add(this.additionalBox);
-            this.Controls.Add(this.basicsBox);
             this.Controls.Add(this.starIcon);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1258, 757);
             this.MinimumSize = new System.Drawing.Size(1258, 726);
             this.Name = "HowTo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Help";
             ((System.ComponentModel.ISupportInitialize)(this.puzzleIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.starIcon)).EndInit();
@@ -215,14 +207,11 @@ namespace piano
             ((System.ComponentModel.ISupportInitialize)(this.line4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.RichTextBox basicsBox;
-        private System.Windows.Forms.RichTextBox additionalBox;
-        private System.Windows.Forms.RichTextBox scoringBox;
         private System.Windows.Forms.PictureBox puzzleIcon;
         private System.Windows.Forms.PictureBox starIcon;
         private System.Windows.Forms.PictureBox plusIcon;
@@ -232,5 +221,8 @@ namespace piano
         private System.Windows.Forms.PictureBox line3;
         private System.Windows.Forms.PictureBox line4;
         private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Label basicsText;
+        private System.Windows.Forms.Label scoringText;
+        private System.Windows.Forms.Label additionalText;
     }
 }

@@ -32,18 +32,13 @@ namespace piano
             {
                 string note = (sender as Button).Name.Substring(3);
 
-                string title = note;
-                if(title.Length == 3)
-                {
-                    title = note.Replace('_', note[2]);
-                    title += '#';
-                }
+                string title = (note.Contains('_')) ? note.Remove(1, 1) + "#" : note;
 
                 string value = (sender as Button).Text;
 
                 pianoKeySelection.play(FormGame.GameKeys[note], FormGame.GameKeys);
 
-                Form keyPressForm = new KeyPress(note);
+                Form keyPressForm = new KeyPress(title);
                 keyPressForm.Tag = sender as Button;
                 keyPressForm.Show(this);
 

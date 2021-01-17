@@ -24,7 +24,7 @@ namespace piano
         {
             InitializeComponent();
 
-            lbPressKey.Text = "Press the key you want to set for the tone " + note.ToLower() + "!";
+            lbPressKey.Text = "Press the key you want to set for selected tone " + note.ToLower() + "!";
         }
 
         #region Events
@@ -32,7 +32,7 @@ namespace piano
         /// <summary>
         /// Ako pritisnutu tipku nije moguće postaviti za sviranje odabranog tona forma ostaje otvorena i omogućeno je biranje nove tipke.
         /// Inače se pritisnuta tipka postavlja za odabrani ton u daljnoj igri.
-        /// Korisnik u svakom trenu može odustati od odabita pritiskom na gumb X za izlaz iz forme.
+        /// Korisnik u svakom trenu može odustati od odabira pritiskom na gumb X za izlaz iz forme.
         /// </summary>
         private void KeyPress_KeyDown(object sender, KeyEventArgs e)
         {
@@ -43,6 +43,13 @@ namespace piano
 
             if (string.Equals(pressedKeyName, oldKey, StringComparison.CurrentCultureIgnoreCase))
                     this.Close();
+
+            // enter ne smije biti izabran
+            if (pressedKeyName.Equals("Enter"))
+            {
+                lbPressKey.Text = "'Enter' key is not suitable. Pick another one!";
+                return;
+            }
 
             if (isKeyUsed(pressedKeyName))
             {

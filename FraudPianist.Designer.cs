@@ -32,23 +32,24 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGame));
             this.buttonMenu = new System.Windows.Forms.Button();
             this.panelScore = new System.Windows.Forms.Panel();
+            this.labelPercent = new System.Windows.Forms.Label();
+            this.restartButton = new System.Windows.Forms.Button();
             this.labelLvlMsg = new System.Windows.Forms.Label();
             this.labelPass = new System.Windows.Forms.Label();
-            this.labelPercent = new System.Windows.Forms.Label();
-            this.labelResult = new System.Windows.Forms.Label();
             this.labelPoruka = new System.Windows.Forms.Label();
             this.labelBodovi = new System.Windows.Forms.Label();
-            this.tilesBox = new System.Windows.Forms.PictureBox();
+            this.labelLevel = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.piano = new piano.Piano();
+            this.tilesBox = new System.Windows.Forms.PictureBox();
             this.panelScore.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tilesBox)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonMenu
             // 
-            this.buttonMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonMenu.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.buttonMenu.BackColor = System.Drawing.Color.Azure;
             this.buttonMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonMenu.FlatAppearance.BorderColor = System.Drawing.Color.White;
@@ -56,7 +57,7 @@
             this.buttonMenu.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.buttonMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonMenu.Image = global::piano.Properties.Resources.Webp_net_resizeimage;
-            this.buttonMenu.Location = new System.Drawing.Point(316, 0);
+            this.buttonMenu.Location = new System.Drawing.Point(156, 599);
             this.buttonMenu.Margin = new System.Windows.Forms.Padding(0);
             this.buttonMenu.Name = "buttonMenu";
             this.buttonMenu.Size = new System.Drawing.Size(75, 84);
@@ -72,27 +73,55 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelScore.BackColor = System.Drawing.Color.Azure;
+            this.panelScore.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelScore.Controls.Add(this.labelPercent);
+            this.panelScore.Controls.Add(this.restartButton);
             this.panelScore.Controls.Add(this.buttonMenu);
             this.panelScore.Controls.Add(this.labelLvlMsg);
             this.panelScore.Controls.Add(this.labelPass);
-            this.panelScore.Controls.Add(this.labelPercent);
-            this.panelScore.Controls.Add(this.labelResult);
             this.panelScore.Controls.Add(this.labelPoruka);
             this.panelScore.Controls.Add(this.labelBodovi);
+            this.panelScore.Controls.Add(this.labelLevel);
             this.panelScore.Location = new System.Drawing.Point(1057, -1);
             this.panelScore.Margin = new System.Windows.Forms.Padding(0);
             this.panelScore.Name = "panelScore";
             this.panelScore.Size = new System.Drawing.Size(392, 773);
             this.panelScore.TabIndex = 4;
             // 
+            // labelPercent
+            // 
+            this.labelPercent.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelPercent.BackColor = System.Drawing.Color.Azure;
+            this.labelPercent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelPercent.Font = new System.Drawing.Font("Lucida Handwriting", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPercent.Location = new System.Drawing.Point(108, 213);
+            this.labelPercent.Name = "labelPercent";
+            this.labelPercent.Size = new System.Drawing.Size(173, 100);
+            this.labelPercent.TabIndex = 7;
+            this.labelPercent.Text = "10,00%";
+            this.labelPercent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // restartButton
+            // 
+            this.restartButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.restartButton.BackColor = System.Drawing.Color.Orchid;
+            this.restartButton.Font = new System.Drawing.Font("Lucida Handwriting", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.restartButton.Location = new System.Drawing.Point(108, 496);
+            this.restartButton.Name = "restartButton";
+            this.restartButton.Size = new System.Drawing.Size(173, 100);
+            this.restartButton.TabIndex = 10;
+            this.restartButton.Text = "button1";
+            this.restartButton.UseVisualStyleBackColor = false;
+            this.restartButton.Click += new System.EventHandler(this.restartButton_Click);
+            // 
             // labelLvlMsg
             // 
             this.labelLvlMsg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.labelLvlMsg.BackColor = System.Drawing.Color.Azure;
             this.labelLvlMsg.Font = new System.Drawing.Font("Lucida Handwriting", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLvlMsg.Location = new System.Drawing.Point(56, 405);
+            this.labelLvlMsg.Location = new System.Drawing.Point(63, 408);
             this.labelLvlMsg.Name = "labelLvlMsg";
-            this.labelLvlMsg.Size = new System.Drawing.Size(271, 111);
+            this.labelLvlMsg.Size = new System.Drawing.Size(269, 85);
             this.labelLvlMsg.TabIndex = 9;
             this.labelLvlMsg.Text = "level message";
             this.labelLvlMsg.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -101,75 +130,51 @@
             // 
             this.labelPass.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.labelPass.BackColor = System.Drawing.Color.Azure;
-            this.labelPass.Font = new System.Drawing.Font("Lucida Handwriting", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPass.Location = new System.Drawing.Point(50, 362);
+            this.labelPass.Font = new System.Drawing.Font("Lucida Handwriting", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPass.Location = new System.Drawing.Point(64, 325);
             this.labelPass.Name = "labelPass";
-            this.labelPass.Size = new System.Drawing.Size(262, 43);
+            this.labelPass.Size = new System.Drawing.Size(258, 77);
             this.labelPass.TabIndex = 8;
             this.labelPass.Text = "pass/fail";
             this.labelPass.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // labelPercent
-            // 
-            this.labelPercent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelPercent.BackColor = System.Drawing.Color.Azure;
-            this.labelPercent.Font = new System.Drawing.Font("Lucida Handwriting", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPercent.Location = new System.Drawing.Point(50, 319);
-            this.labelPercent.Name = "labelPercent";
-            this.labelPercent.Size = new System.Drawing.Size(262, 43);
-            this.labelPercent.TabIndex = 7;
-            this.labelPercent.Text = "percent";
-            this.labelPercent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // labelResult
-            // 
-            this.labelResult.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelResult.BackColor = System.Drawing.Color.Azure;
-            this.labelResult.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelResult.Font = new System.Drawing.Font("Lucida Handwriting", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelResult.Location = new System.Drawing.Point(50, 276);
-            this.labelResult.Name = "labelResult";
-            this.labelResult.Size = new System.Drawing.Size(262, 43);
-            this.labelResult.TabIndex = 6;
-            this.labelResult.Text = "Result:";
-            this.labelResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelPoruka
             // 
             this.labelPoruka.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.labelPoruka.BackColor = System.Drawing.Color.Azure;
-            this.labelPoruka.Font = new System.Drawing.Font("Lucida Handwriting", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPoruka.Location = new System.Drawing.Point(47, 175);
+            this.labelPoruka.Font = new System.Drawing.Font("Lucida Handwriting", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPoruka.Location = new System.Drawing.Point(50, 226);
             this.labelPoruka.Name = "labelPoruka";
-            this.labelPoruka.Size = new System.Drawing.Size(265, 50);
+            this.labelPoruka.Size = new System.Drawing.Size(290, 120);
             this.labelPoruka.TabIndex = 5;
             this.labelPoruka.Text = "label";
             this.labelPoruka.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelBodovi
             // 
-            this.labelBodovi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelBodovi.BackColor = System.Drawing.Color.AliceBlue;
+            this.labelBodovi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelBodovi.BackColor = System.Drawing.Color.Azure;
             this.labelBodovi.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelBodovi.Font = new System.Drawing.Font("Lucida Handwriting", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelBodovi.Location = new System.Drawing.Point(118, 115);
+            this.labelBodovi.Font = new System.Drawing.Font("Lucida Handwriting", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelBodovi.Location = new System.Drawing.Point(110, 97);
             this.labelBodovi.Name = "labelBodovi";
-            this.labelBodovi.Size = new System.Drawing.Size(116, 50);
+            this.labelBodovi.Size = new System.Drawing.Size(173, 100);
             this.labelBodovi.TabIndex = 4;
             this.labelBodovi.Text = "0";
             this.labelBodovi.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tilesBox
+            // labelLevel
             // 
-            this.tilesBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.tilesBox.BackColor = System.Drawing.Color.Azure;
-            this.tilesBox.Location = new System.Drawing.Point(-1, -2);
-            this.tilesBox.Margin = new System.Windows.Forms.Padding(0);
-            this.tilesBox.Name = "tilesBox";
-            this.tilesBox.Size = new System.Drawing.Size(1048, 477);
-            this.tilesBox.TabIndex = 5;
-            this.tilesBox.TabStop = false;
+            this.labelLevel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelLevel.Font = new System.Drawing.Font("Lucida Handwriting", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLevel.Location = new System.Drawing.Point(52, 41);
+            this.labelLevel.Name = "labelLevel";
+            this.labelLevel.Size = new System.Drawing.Size(289, 43);
+            this.labelLevel.TabIndex = 11;
+            this.labelLevel.Text = "level";
+            this.labelLevel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // timer1
             // 
@@ -185,12 +190,24 @@
             // 
             this.piano.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.piano.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.piano.Location = new System.Drawing.Point(2, 468);
+            this.piano.Location = new System.Drawing.Point(2, 475);
             this.piano.Margin = new System.Windows.Forms.Padding(0);
             this.piano.Name = "piano";
-            this.piano.Size = new System.Drawing.Size(1055, 303);
+            this.piano.Size = new System.Drawing.Size(1055, 296);
             this.piano.TabIndex = 0;
             this.piano.Visible = false;
+            // 
+            // tilesBox
+            // 
+            this.tilesBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.tilesBox.BackColor = System.Drawing.Color.Azure;
+            this.tilesBox.Location = new System.Drawing.Point(-1, -2);
+            this.tilesBox.Margin = new System.Windows.Forms.Padding(0);
+            this.tilesBox.Name = "tilesBox";
+            this.tilesBox.Size = new System.Drawing.Size(1058, 477);
+            this.tilesBox.TabIndex = 5;
+            this.tilesBox.TabStop = false;
             // 
             // FormGame
             // 
@@ -205,7 +222,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(0);
-            this.MinimumSize = new System.Drawing.Size(728, 417);
+            this.MinimumSize = new System.Drawing.Size(728, 800);
             this.Name = "FormGame";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Fraud Pianist";
@@ -222,14 +239,15 @@
         private Piano piano;
         private System.Windows.Forms.Button buttonMenu;
         private System.Windows.Forms.Panel panelScore;
-        private System.Windows.Forms.PictureBox tilesBox;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.Label labelBodovi;
         private System.Windows.Forms.Label labelPoruka;
-        private System.Windows.Forms.Label labelResult;
         private System.Windows.Forms.Label labelPercent;
         private System.Windows.Forms.Label labelPass;
         private System.Windows.Forms.Label labelLvlMsg;
+        private System.Windows.Forms.Button restartButton;
+        private System.Windows.Forms.Label labelLevel;
+        private System.Windows.Forms.PictureBox tilesBox;
     }
 }

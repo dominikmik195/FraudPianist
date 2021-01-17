@@ -207,6 +207,31 @@ namespace piano
             enableAllButtons();
         }
 
+        /// <summary>
+        /// Postavlja boje pozadine svih tipki klavira na inicijalne.
+        /// </summary>
+        public void silenceAllKeys()
+        {
+            foreach (var buttonName in buttons)
+            {
+                Button btn = this.Controls["btn"+buttonName] as Button;
+
+                if (btn != null)
+                {
+                    if (whites.Contains(buttonName))
+                    {
+                        btn.BackColor = Color.White;
+                    }
+                    else if (blacks.Contains(buttonName))
+                    {
+                        btn.BackColor = Color.Black;
+                    }
+                }
+
+                enableAllButtons();
+            }
+        }
+
         #endregion
 
         #region Private

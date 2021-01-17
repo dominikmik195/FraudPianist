@@ -29,22 +29,17 @@ namespace piano
         private Tile previousTile;
         // zadnje ispravno odsvirana pločica
         private Tile lastPlayedTile;
-        // najniža 'živa' pločica (ona koju treba sljedeću odsvirati)
+        // najniža pločica koju nije 'prošla' kontrolnu liniju (ona koju treba sljedeću odsvirati)
         public Tile lowestTile;
 
         // pomoćna varijabla koja služi za određivanje perioda u kojem je prikazan
         // pravokutnih iznad točno odsvirane note
         private int counterHit;
 
-
         // ukupan broj ostvarenih bodova
         private int score;
-        // broj mogućih bodova (potrebno za izračun 'polaganja' razine)
-        private int score_possible;
         // ukupan broj točno pritisnutih tipki zaredom
         private int combo;
-        // broj tipki
-        private int note_no;
         // varijabla koja pamti je li u tijeku combo
         private bool combo_made;
 
@@ -60,19 +55,9 @@ namespace piano
             get { return score; }
         }
 
-        public int Score_possible
-        {
-            get { return score_possible; }
-        }
-
         public int Combo
         {
             get { return combo; }
-        }
-
-        public int Note_no
-        {
-            get { return note_no; }
         }
 
         public bool Combo_made
@@ -97,9 +82,8 @@ namespace piano
             lowestTile = null;
             previousTile = null;
             lastPlayedTile = null;
-            counterHit = 3; //10 tickova timera
+            counterHit = 0;
 
-            note_no = 0;
             combo_made = false;
         }
 
@@ -109,7 +93,8 @@ namespace piano
         /// <returns><code>true</code> ako je pjesma gotova, <code>false</code> inače.</returns>
         public bool isOver()
         {
-            return (currentNoteIndex == song.Length && tiles.Count == 0);
+            Console.WriteLine("counterhit" + counterHit.ToString());
+            return (currentNoteIndex == song.Length && tiles.Count == 0 && counterHit == 0);
         }
 
         /// <summary>
@@ -162,49 +147,27 @@ namespace piano
             previousTile = newTile;
            
             tiles.Add(newTile);
-            // ako smo došli dovde, znači da je obrađena jedna nota:
-            note_no++;
         }
 
         /// <summary>
         /// Ažurira poziciju svih pločica.
         /// </summary>
         public void update()
-        {
-            // ako je igra gotova, računa maksimalan mogući broj bodova
-            if (isOver())
-            {
-                // Najveći mogući broj bodova je onaj koji se ostvari ako su sve note
-                // idealno odsvirane.
-                score_possible = 0;
-                int faktor = 1;
-                int broj_nota = note_no;
-                Console.WriteLine(note_no);
-                while (broj_nota > 9)
-                {
-                    // Dobivamo po 10*faktor bodova za svaku od 10 idealno odsviranih nota zaredom:
-                    score_possible += faktor * 10 * 10;
-                    // Za svakih deset idealno odsviranih nota, faktor se poveća za 1,
-                    // ako još nije dosegao najveću vrijednost:
-                    if (faktor < 5) faktor++;
-                    broj_nota -= 10;
-                }
-                // Dodamo još bodove za ostale note:
-                score_possible += faktor * 10 * broj_nota;
-                Console.WriteLine(score_possible);
-                return;
-            }
+        {         
             // update postojećih pločica
             for (int i = tiles.Count - 1; i >= 0; i--)
             {
+                Console.WriteLine(tiles[i].Y + tiles[i].Id);
+                // kada pločica pređe kontrolnu liniju, više se ne može odsvirati
+                if (tiles[i].Y >= Application.OpenForms["FormGame"].Controls["tilesBox"].Height - 72 && 
+                    tiles.Count >= 2)
+                {
+                    lowestTile = tiles[1];
+                }
+                // kada pločica padne do kraja, više se ne prikazuje
                 if (tiles[i].Y >= Application.OpenForms["FormGame"].Controls["tilesBox"].Height)
                 {
-                    // pločica je pala
                     tiles.RemoveAt(i);
-                    if (tiles.Count != 0)
-                    {
-                        lowestTile = tiles.First();
-                    }
                 }
                 else
                 {
@@ -222,12 +185,19 @@ namespace piano
             Bitmap bitmap = new Bitmap(box.Width, box.Height);
             Graphics graphics = Graphics.FromImage(bitmap);
 
-            if (lastPlayedTile != null && counterHit >= 0)
+            // crtanje pravokutnika iznad klavirske tipke
+            if (lastPlayedTile != null && counterHit > 0)
             {
                 renderHit(graphics);
                 counterHit--;
             }
 
+            // crtanje kontrolne linije
+            var tilesBoxControl = Application.OpenForms["FormGame"].Controls["tilesBox"];
+            float controlLineY = tilesBoxControl.Height - 80;
+            graphics.DrawLine(new Pen(Color.DarkSlateBlue, 8), 0, controlLineY, tilesBoxControl.Width, controlLineY);
+           
+            // crtanje pločica
             foreach (var tile in tiles)
             {
                 tile.render(graphics);
@@ -261,7 +231,7 @@ namespace piano
         public void hit(int space)
         {
             if (lowestTile.Y + lowestTile.Height < space / 2) score += 2;
-            else if (lowestTile.Y + lowestTile.Height < space - 20) score += 5;
+            else if (lowestTile.Y + lowestTile.Height < space - 80) score += 5;
             else
             {
                 int faktor = combo / 10 + 1;
@@ -271,10 +241,10 @@ namespace piano
             }
 
             // ažuriranje info za crtanje pravokutnika iznad tipke klavira
-            lastPlayedTile = tiles.First();
+            lastPlayedTile = lowestTile;
             counterHit = 3;
 
-            tiles.RemoveAt(0);
+            tiles.Remove(lowestTile);
             if (tiles.Count != 0)
             {
                 lowestTile = tiles.First();
@@ -301,7 +271,9 @@ namespace piano
             lowestTile = null;
             previousTile = null;
             lastPlayedTile = null;
-            counterHit = 3;
+            counterHit = 0;
+
+            this.render(Application.OpenForms["FormGame"].Controls["tilesBox"] as PictureBox);
         }
     }
 }

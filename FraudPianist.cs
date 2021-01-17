@@ -70,7 +70,9 @@ namespace piano
         public FormGame()
         {
             InitializeComponent();
+
             pressedKey = "";
+
 
             Controls.Add(newMenu);
             Controls.Add(chooseSongs);
@@ -121,7 +123,7 @@ namespace piano
                 rules.ShowDialog(this);
             };
 
-            this.MinimumSize = new System.Drawing.Size(piano.Width, piano.Height+50);
+            this.MinimumSize = new System.Drawing.Size(piano.Width, 500);
         }
 
         #region Properties
@@ -141,6 +143,16 @@ namespace piano
         /// </summary>
         private void buttonMenu_Click(object sender, EventArgs e)
         {
+            // stopiramo tajmere da igra ne krene prije nego što to želimo
+            // ukoliko igrač klikne na meni dok se igra odvija, želimo zaustaviti tijek igre
+            timer1.Stop();
+            timer2.Stop();
+            // ako se vraćamo na meni iz igre, igru moramo resetirati
+            if (game != null)
+            {
+                game.reset();
+            }
+
             KeyDown -= new KeyEventHandler(FormGame_KeyDown);
             mainMenuShow();
         }
@@ -209,7 +221,7 @@ namespace piano
                 // ukoliko je u combo u tijeku, to naznačimo igraču:
                 int faktor = game.Combo / 10 + 1;
                 if (faktor > 5) faktor = 5;
-                labelPoruka.ForeColor = Color.DarkGreen;
+                labelPoruka.ForeColor = Color.Teal;
                 labelPoruka.Text = "COMBO " + faktor + "X";
                 game.Combo_made = true;
             }
@@ -218,15 +230,20 @@ namespace piano
                 // ako combo više nije u tijeku, ali je combo_made postavljen na true
                 // to znači da smo imali combo ali je prekinut, pa treba postaviti poruku:
                 game.Combo_made = false;
-                labelPoruka.ForeColor = Color.DarkRed;
+                labelPoruka.ForeColor = Color.DarkOrchid;
                 labelPoruka.Text = "COMBO BROKEN";
             }
             if (game.isOver())
             {
+                // stopiramo tajmere kako sljedeća igra ne bi počela čim se pozove game stavi na new Game
+                timer1.Stop();
+                timer2.Stop();
+                game.reset();
+
                 // ako je igra gotova, računamo rezultat:
-                double percentage = Math.Round((double)game.Score / game.Score_possible * 100, 2);
+                double percentage = Math.Round((double)game.Score / game.Level.scorePossible * 100, 1);
                 labelPoruka.Text = "";
-                labelResult.Visible = true;
+                labelPoruka.Visible = false;
                 labelPercent.Visible = true;
                 labelPercent.Text = percentage.ToString() + "%";
                 labelPass.Visible = true;
@@ -234,41 +251,57 @@ namespace piano
                 // ovisno o kvaliteti rezultata, prikazujemo prigodne poruke:
                 if (percentage == 100)
                 {
-                    labelPass.ForeColor = Color.DarkGreen;
+                    labelPass.ForeColor = Color.Teal;
                     labelPass.Text = "Perfect score!";
                 }
                 else if (percentage >= 75)
                 {
-                    labelPass.ForeColor = Color.DarkGreen;
+                    labelPass.ForeColor = Color.Teal;
                     labelPass.Text = "Amazing!";
                 }
                 else if (percentage >= 55)
                 {
-                    labelPass.ForeColor = Color.DarkGreen;
+                    labelPass.ForeColor = Color.Teal;
                     labelPass.Text = "Well done!";
                 }
                 else if (percentage >= 30)
                 {
-                    labelPass.ForeColor = Color.DarkGreen;
+                    labelPass.ForeColor = Color.Teal;
                     labelPass.Text = "You passed!";
                 }
                 else
                 {
-                    labelPass.ForeColor = Color.DarkRed;
+                    labelPass.ForeColor = Color.DarkOrchid;
                     labelPass.Text = "You failed!";
                 }
                 KeyDown -= new KeyEventHandler(FormGame_KeyDown);
 
+                // ukoliko je zadnji level prijeđen, ispisujemo poruku o završetku igre
+                if (percentage >= 30 && game.Level.Equals(Level.FIVE))
+                {
+                    string message = "Congrats maestro! You completed the game!";
+                    string title = "True pianist";
+                    MessageBox.Show(message, title);
+                }
                 // ukoliko je level prijeđen, otključavamo sljedeći:
-                if (percentage >= 30)
+                else if (percentage >= 30)
                 {
                     if (!isLvlSaved(game.Level.levelNumber + 1) && game.Level.levelNumber < 5)
                     {
-                        saveLvl(game.Level.levelNumber+1);
-                        chooseSongs.enable(game.Level.levelNumber+1);
+                        saveLvl(game.Level.levelNumber + 1);
+                        chooseSongs.enable(game.Level.levelNumber + 1);
                         labelLvlMsg.Visible = true;
-                        labelLvlMsg.Text = "Level " + (game.Level.levelNumber+1).ToString() + " is now unlocked!";
+                        labelLvlMsg.Text = "Level " + (game.Level.levelNumber + 1).ToString() + " is now unlocked!";
                     }
+                    restartButton.Text = "Next level";
+                    // na kraju igre prikazuje se gumb za ponovno pokretanje igre
+                    restartButton.Visible = true;
+                }
+                else
+                {
+                    restartButton.Text = "Try again";
+                    // na kraju igre prikazuje se gumb za ponovno pokretanje igre
+                    restartButton.Visible = true;
                 }
             }
         }
@@ -314,6 +347,8 @@ namespace piano
                 //namjestit do crte visinu obaveznooo!!!!!
                 this.MinimumSize = new System.Drawing.Size(piano.Width, piano.Height + 50);
                 piano.Location = new System.Drawing.Point(0, Height - piano.Height - 35);
+                buttonMenu.Location = new System.Drawing.Point(
+                panelScore.Width / 2 - buttonMenu.Width / 2, panelScore.Height - buttonMenu.Height - 60);
             }
             //practice                
             else if (piano.Visible == true)
@@ -323,6 +358,19 @@ namespace piano
             }
         }
 
+        private void restartButton_Click(object sender, EventArgs e)
+        {
+            // gumb pokreće novu igru s istom ili novom pjesmom, ukoliko 
+            // se u prošloj igri zadovoljio uvjet za novi level
+            if (restartButton.Text.Equals("Next level"))
+            {
+                playGame(++game.Level.levelNumber);
+            }
+            else
+            {
+                playGame(game.Level.levelNumber);
+            }
+        }
         #endregion
 
         #region Private
@@ -333,13 +381,14 @@ namespace piano
         private void playGame(int level)
         {
             clearFormGameFor();
+            piano.silenceAllKeys();
             this.BackColor = System.Drawing.SystemColors.ScrollBar;
 
             game = new Game(level);
 
             tilesBox.Visible = true;
             tilesBox.Enabled = true;
-            tilesBox.Size = new System.Drawing.Size(Width - panelScore.Width + 68, Height - piano.Height - 40);
+            //tilesBox.Size = new System.Drawing.Size(Width - panelScore.Width, Height - piano.Height - 40);
 
             piano.Location = new System.Drawing.Point(0, Height - piano.Height - 35);
             piano.Visible = true;
@@ -349,14 +398,19 @@ namespace piano
             panelScore.Enabled = true;
 
             panelScore.Controls.Add(buttonMenu);
-            buttonMenu.Anchor = (AnchorStyles.Top | AnchorStyles.Right);
-            buttonMenu.Location = new System.Drawing.Point(panelScore.Width - buttonMenu.Width - 15, 5);
+            buttonMenu.Anchor = AnchorStyles.Top;
+            buttonMenu.Location = new System.Drawing.Point(
+                panelScore.Width / 2 - buttonMenu.Width / 2, panelScore.Height - buttonMenu.Height - 60 );
             buttonMenu.Visible = true;
             buttonMenu.Enabled = true;
-            
+
+            restartButton.Visible = false;
+
+            labelLevel.Text = game.Level.levelNumber.ToString() + ". " + game.Level.songName;
+            labelLevel.Visible = true;
+
             labelBodovi.Text = "0";
             labelPoruka.Text = "";
-            labelResult.Visible = false;
             labelPercent.Visible = false;
             labelPass.Visible = false;
             labelLvlMsg.Visible = false;
@@ -451,7 +505,9 @@ namespace piano
             buttonMenu.Location = new System.Drawing.Point(this.Width - buttonMenu.Width - 30, 5);
             buttonMenu.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             buttonMenu.Enabled = true;
-            buttonMenu.Visible = true;           
+            buttonMenu.Visible = true;
+
+            SendKeys.SendWait("{ENTER}");
 
             //pictureBoxNote.TabStop = false;
             //buttonMenu.TabStop = false;
